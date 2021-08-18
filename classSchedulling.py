@@ -82,6 +82,10 @@ class Schedule:
         self._classNumb = 0
         self._isFintessChanged = True
 
+    def get_classes(self):
+        self._isFintessChanged = True
+        return self._classes
+
     def get_numbOfConflicts(self):
         return self._numberOfConflicts
 
@@ -124,14 +128,14 @@ class Schedule:
             ):
                 self._numberOfConflicts += 1
             for j in range(0, len(classes)):
-                if j >= 1:
+                if j >= i:
                     if (
                         classes[i].get_meetingTime() == classes[j].get_meetingTime()
                         and classes[i].get_id() != classes[j].get_id()
                     ):
                         if classes[i].get_id() == classes[j].get_id():
                             self._numberOfConflicts += 1
-                        if classes[i].get_instructor() == classes[j].get_instuctor():
+                        if classes[i].get_instructors() == classes[j].get_instuctors():
                             self._numberOfConflicts += 1
         return 1 / ((1.0 * self._numbOfConflicts + 1))
 
