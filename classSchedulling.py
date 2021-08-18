@@ -5,7 +5,7 @@ POPULATION_SIZE = 9
 
 
 class Data:
-    ROOMS = [["R1", 25], ["R2", 45], ["R3,35"]]
+    ROOMS = [["R1", 25], ["R2", 45], ["R3", 35]]
     MEETING_TIMES = [
         ["MT1", "MWF 09:00 - 10.00"],
         ["MT2", "MWF 10:00 - 11.00"],
@@ -20,7 +20,7 @@ class Data:
     ]
 
     def __init__(self):
-        self.rooms = []
+        self._rooms = []
         self._meetingTimes = []
         self._instructors = []
         for i in range(0, len(self.ROOMS)):
@@ -33,18 +33,18 @@ class Data:
             self._instructors.append(
                 Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1])
             )
-        course1 = Course("C1", "325K", [self._instructors[0], self._instructors[1], 25])
+        course1 = Course("C1", "325K", [self._instructors[0], self._instructors[1]], 25)
         course2 = Course(
             "C2",
             "319K",
             [self._instructors[0], self._instructors[1], self._instructors[2]],
             35,
         )
-        course3 = Course("C3", "462K", [self._instructors[0], self._instructors[1], 25])
-        course4 = Course("C4", "464K", [self._instructors[2], self._instructors[3], 30])
+        course3 = Course("C3", "462K", [self._instructors[0], self._instructors[1]], 25)
+        course4 = Course("C4", "464K", [self._instructors[2], self._instructors[3]], 30)
         course5 = Course("C5", "360K", [self._instructors[3]], 35)
-        course6 = Course("C6", "303K", [self._instructors[0], self._instructors[2], 45])
-        course7 = Course("C7", "303L", [self._instructors[1], self._instructors[3], 45])
+        course6 = Course("C6", "303K", [self._instructors[0], self._instructors[2]], 45)
+        course7 = Course("C7", "303L", [self._instructors[1], self._instructors[3]], 45)
         self._courses = [course1, course2, course3, course4, course5, course6, course7]
         dept1 = Department("MATH", [course1, course3])
         dept2 = Department("EE", [course2, course4, course5])
@@ -94,7 +94,7 @@ class Schedule:
     def initialize(self):
         depts = self._data.get_depts()
         for i in range(0, len(depts)):
-            courses = depts[i].get._courses()
+            courses = depts[i].get_courses()
             for j in range(0, len(courses)):
                 newClass = Class(self._classNumb, depts[i], courses[j])
                 self._classNumb += 1
@@ -104,7 +104,7 @@ class Schedule:
                     ]
                 )
                 newClass.set_room(
-                    data.get_rooms()[rnd.randrange(0, len(data.get_rooms))]
+                    data.get_rooms()[rnd.randrange(0, len(data.get_rooms()))]
                 )
                 newClass.set_instructor(
                     courses[j].get_instructors()[
@@ -163,8 +163,8 @@ class Course:
     def __init__(self, number, name, instructors, maxNumbOfStudents):
         self._number = number
         self._name = name
-        self._maxNumberOfStudents = maxNumbOfStudents
         self._instructors = instructors
+        self._maxNumbOfStudents = maxNumbOfStudents
 
     def get_number(self):
         return self._number
@@ -175,8 +175,8 @@ class Course:
     def get_instructors(self):
         return self._instructors
 
-    def get_maxNumberOfStudents(self):
-        return self._maxNumberOfStudents
+    def get_maxNumbOfStudents(self):
+        return self._maxNumbOfStudents
 
     def __str__(self):
         return self._name
@@ -319,7 +319,7 @@ class DisplayMgr:
                 [
                     courses[i].get_number(),
                     courses[i].get_name(),
-                    str(courses[i].get_maxNumberOfStudents()),
+                    str(courses[i].get_maxNumbOfStudents()),
                     tempStr,
                 ]
             )
@@ -338,10 +338,10 @@ class DisplayMgr:
         availableRoomsTable = prettytable.PrettyTable(
             ["room #", "max seating capacity"]
         )
-        rooms = data.get_roooms
+        rooms = data.get_rooms()
         for i in range(0, len(rooms)):
             availableRoomsTable.add_row(
-                [str(rooms[i].get_number(), str(rooms[i].get_seatingCapacity()))]
+                [str(rooms[i].get_number()), str(rooms[i].get_seatingCapacity())]
             )
         print(availableRoomsTable)
 
