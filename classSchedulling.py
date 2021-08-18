@@ -77,7 +77,7 @@ class Schedule:
     def __init__(self):
         self._data = data
         self._classes = []
-        self._numberOfConflicts = 0
+        self._numbOfConflicts = 0
         self._fitness = -1
         self._classNumb = 0
         self._isFintessChanged = True
@@ -87,7 +87,7 @@ class Schedule:
         return self._classes
 
     def get_numbOfConflicts(self):
-        return self._numberOfConflicts
+        return self._numbOfConflicts
 
     def get_fitness(self):
         if self._isFintessChanged == True:
@@ -119,14 +119,14 @@ class Schedule:
         return self
 
     def calculate_fitness(self):
-        self._numberOfConflicts = 0
+        self._numbOfConflicts = 0
         classes = self.get_classes()
         for i in range(0, len(classes)):
             if (
                 classes[i].get_room().get_seatingCapacity()
                 < classes[i].get_course().get_maxNumbOfStudents()
             ):
-                self._numberOfConflicts += 1
+                self._numbOfConflicts += 1
             for j in range(0, len(classes)):
                 if j >= i:
                     if (
@@ -134,9 +134,9 @@ class Schedule:
                         and classes[i].get_id() != classes[j].get_id()
                     ):
                         if classes[i].get_id() == classes[j].get_id():
-                            self._numberOfConflicts += 1
-                        if classes[i].get_instructors() == classes[j].get_instuctors():
-                            self._numberOfConflicts += 1
+                            self._numbOfConflicts += 1
+                        if classes[i].get_instructor() == classes[j].get_instructor():
+                            self._numbOfConflicts += 1
         return 1 / ((1.0 * self._numbOfConflicts + 1))
 
     def __str__(self):
@@ -268,7 +268,7 @@ class Class:
         self._instructor = instructor
 
     def set_meetingTime(self, meetingTime):
-        self._meetingTime = MeetingTime
+        self._meetingTime = meetingTime
 
     def set_room(self, room):
         self._room = room
