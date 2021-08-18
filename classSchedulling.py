@@ -210,7 +210,7 @@ class Room:
 
 
 class MeetingTime:
-    def __init__(self, id, name):
+    def __init__(self, id, time):
         self._id = id
         self._time = time
 
@@ -298,7 +298,7 @@ class DisplayMgr:
         for i in range(0, len(depts)):
             courses = depts.__getitem__(i).get_courses()
             tempStr = "["
-            for i in range(0, len(courses) - 1):
+            for j in range(0, len(courses) - 1):
                 tempStr += courses[j].__str__() + ", "
             tempStr += courses[len(courses) - 1].__str__() + "]"
             availableDeptsTable.add_row([depts.__getitem__(i).get_name(), tempStr])
