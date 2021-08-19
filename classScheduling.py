@@ -83,19 +83,19 @@ class Schedule:
         self._numbOfConflicts = 0
         self._fitness = -1
         self._classNumb = 0
-        self._isFintessChanged = True
+        self._isFitnessChanged = True
 
     def get_classes(self):
-        self._isFintessChanged = True
+        self._isFitnessChanged = True
         return self._classes
 
     def get_numbOfConflicts(self):
         return self._numbOfConflicts
 
     def get_fitness(self):
-        if self._isFintessChanged == True:
+        if self._isFitnessChanged == True:
             self._fitness = self.calculate_fitness()
-            self._isFintessChanged = False
+            self._isFitnessChanged = False
         return self._fitness
 
     def initialize(self):
@@ -431,37 +431,15 @@ class DisplayMgr:
 
     def print_schedule_as_table(self, schedule):
         classes = schedule.get_classes()
-        table = prettytable.PrettyTable(
-            [
-                "Class #",
-                "Dept",
-                "Course (number, max # of students)",
-                "Room(Capacity)",
-                "Instuctors",
-            ]
-        )
+        table = prettytable.PrettyTable(["Class #","Dept","Course (number, max # of students)", "Room(Capacity)","Instuctors (Id)","Meeting Time (Id)",])
         for i in range(0, len(classes)):
             table.add_row(
-                [
-                    str(i),
-                    classes[i].get_dept().get_name(),
-                    classes[i].get_course().get_name()
-                    + "( "
-                    + classes[i].get_course().get_number()
-                    + ", "
-                    + str(classes[i].get_course().get_maxNumbOfStudents())
-                    + ")",
-                    classes[i].get_room().get_number()
-                    + " ("
-                    + str(classes[i].get_room().get_seatingCapacity())
-                    + classes[i].get_instructor().get_name()
-                    + " ("
-                    + str(classes[i].get_instructor().get_id())
-                    + ")",
-                    classes[i].get_meetingTime().get_time()
-                    + " ("
-                    + str(classes[i].get_meetingTime().get_id())
-                    + ")",
+                [str(i),
+                classes[i].get_dept().get_name(),
+                classes[i].get_course().get_name() + " (" + classes[i].get_course().get_number() + ", " + str(classes[i].get_course().get_maxNumbOfStudents()) + ")",
+                classes[i].get_room().get_number() + " (" + str(classes[i].get_room().get_seatingCapacity()) + ")",
+                classes[i].get_instructor().get_name() + " (" + str(classes[i].get_instructor().get_id()) + ")",
+                classes[i].get_meetingTime().get_time() + " (" + str(classes[i].get_meetingTime().get_id())+ ")",
                 ]
             )
         print(table)
@@ -470,9 +448,18 @@ class DisplayMgr:
 data = Data()
 displayMgr = DisplayMgr()
 displayMgr.print_available_data()
-generatioNumber = 0
-print("\n> Generation # " + str(generatioNumber))
+generationNumber = 0
+print("\n> Generation # " + str(generationNumber))
 population = Population(POPULATION_SIZE)
 population.get_schedules().sort(key=lambda x: x.get_fitness(), reverse=True)
 displayMgr.print_generation(population)
 displayMgr.print_schedule_as_table(population.get_schedules()[0])
+genetiAlgorithm = GeneticAlgorithm()
+while population.get_schedules()[0].get_fitness() != 1.0:
+    generationNumber += 1
+    print("\n> Generation # " + str(generationNumber))
+    population = genetiAlgorithm.evolve(population)
+    population.get_schedules().sort(key=lambda x: x.get_fitness(), reverse=True)
+    displayMgr.print_generation(population)
+    displayMgr.print_schedule_as_table(population.get_schedules()[0])
+print("\n\n")
