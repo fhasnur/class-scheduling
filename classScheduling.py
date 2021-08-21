@@ -60,18 +60,18 @@ class Data:
             self._instructors.append(
                 Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1])
             )
-        course1 = Course("C1", "325K", [self._instructors[0], self._instructors[1]], 25)
+        course1 = Course("C1", "Landasan Matematika", [self._instructors[0], self._instructors[1]], 25)
         course2 = Course(
             "C2",
-            "319K",
+            "Kalkulus I",
             [self._instructors[0], self._instructors[1], self._instructors[2]],
             35,
         )
-        course3 = Course("C3", "462K", [self._instructors[0], self._instructors[1]], 25)
-        course4 = Course("C4", "464K", [self._instructors[2], self._instructors[3]], 30)
-        course5 = Course("C5", "360K", [self._instructors[3]], 35)
-        course6 = Course("C6", "303K", [self._instructors[0], self._instructors[2]], 45)
-        course7 = Course("C7", "303L", [self._instructors[1], self._instructors[3]], 45)
+        course3 = Course("C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25)
+        course4 = Course("C4", "Pendidikan Agama Islam", [self._instructors[2], self._instructors[3]], 30)
+        course5 = Course("C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35)
+        course6 = Course("C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45)
+        course7 = Course("C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 45)
         self._courses = [course1, course2, course3, course4, course5, course6, course7]
         dept1 = Department("MAT", [course1, course3])
         dept2 = Department("PMAT", [course2, course4, course5])
