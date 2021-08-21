@@ -8,18 +8,42 @@ MUTATION_RATE = 0.1
 
 
 class Data:
-    ROOMS = [["R1", 25], ["R2", 45], ["R3", 35]]
+    ROOMS = [
+        ["Aula FH", 50],
+        ["FG 202", 35],
+        ["FG 204", 35],
+        ["FG 205", 35],
+        ["FG 303B", 35],
+        ["FG 305", 30],
+        ["M. Teaching", 30],
+        ["MDR2", 15],
+        ["Workshop", 35],
+        ["Lab", 40],
+    ]
     MEETING_TIMES = [
-        ["MT1", "MWF 09:00 - 10.00"],
-        ["MT2", "MWF 10:00 - 11.00"],
-        ["MT3", "MWF 09:00 - 10.30"],
-        ["MT4", "MWF 10:30 - 12.00"],
+        ["J1", "07:30 - 08.20"],
+        ["J2", "09.10 - 10.00"],
+        ["J3", "10:50 - 11.40"],
+        ["J4", "12:00 - 12.50"],
+        ["J5", "12:50 - 13.10"],
+        ["J6", "13:10 - 14.00"],
+        ["J7", "14:00 - 14.50"],
+        ["J8", "14:50 - 15.40"],
+        ["J9", "15:40 - 16.30"],
+        ["J10", "16:30 - 17.30"],
+        ["J11", "17:30 - 18.00"],
     ]
     INSTRUCTORS = [
         ["I1", "Dr James Web"],
-        ["I2", "Mr. Mike Brown"],
+        ["I2", "Mr Mike Brown"],
         ["I3", "Dr Steve Day"],
-        ["I4", "Mrs Jane Doe"],
+        ["I4", "Mr Fandi Hasnur"],
+        ["I5", "Mrs Putri Melati"],
+        ["I6", "Dr Harun Rasyid"],
+        ["I7", "Mr Haer"],
+        ["I8", "Mr Danial Fanzeka"],
+        ["I9", "Mr Bambang"],
+        ["I10", "Mr Budi"],
     ]
 
     def __init__(self):
@@ -49,9 +73,9 @@ class Data:
         course6 = Course("C6", "303K", [self._instructors[0], self._instructors[2]], 45)
         course7 = Course("C7", "303L", [self._instructors[1], self._instructors[3]], 45)
         self._courses = [course1, course2, course3, course4, course5, course6, course7]
-        dept1 = Department("MATH", [course1, course3])
-        dept2 = Department("EE", [course2, course4, course5])
-        dept3 = Department("PHY", [course6, course7])
+        dept1 = Department("MAT", [course1, course3])
+        dept2 = Department("PMAT", [course2, course4, course5])
+        dept3 = Department("PMICP", [course6, course7])
         self._depts = [dept1, dept2, dept3]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
@@ -348,7 +372,7 @@ class DisplayMgr:
 
     def print_dept(self):
         depts = data.get_depts()
-        availableDeptsTable = prettytable.PrettyTable(["dept", "courses"])
+        availableDeptsTable = prettytable.PrettyTable(["prodi", "mata kuliah"])
         for i in range(0, len(depts)):
             courses = depts.__getitem__(i).get_courses()
             tempStr = "["
@@ -360,7 +384,7 @@ class DisplayMgr:
 
     def print_course(self):
         availableCoursesTable = prettytable.PrettyTable(
-            ["id", "course #", "max # of students", "instructors"]
+            ["id", "mata kuliah #", "max # of students", "dosen"]
         )
         courses = data.get_courses()
         for i in range(0, len(courses)):
@@ -380,7 +404,7 @@ class DisplayMgr:
         print(availableCoursesTable)
 
     def print_instructor(self):
-        availableInstructorsTable = prettytable.PrettyTable(["id", "instructor"])
+        availableInstructorsTable = prettytable.PrettyTable(["id", "dosen"])
         instructors = data.get_instructors()
         for i in range(0, len(instructors)):
             availableInstructorsTable.add_row(
@@ -431,15 +455,39 @@ class DisplayMgr:
 
     def print_schedule_as_table(self, schedule):
         classes = schedule.get_classes()
-        table = prettytable.PrettyTable(["Class #","Dept","Course (number, max # of students)", "Room(Capacity)","Instuctors (Id)","Meeting Time (Id)",])
+        table = prettytable.PrettyTable(
+            [
+                "Class #",
+                "Dept",
+                "Course (number, max # of students)",
+                "Room(Capacity)",
+                "Instuctors (Id)",
+                "Meeting Time (Id)",
+            ]
+        )
         for i in range(0, len(classes)):
             table.add_row(
-                [str(i),
-                classes[i].get_dept().get_name(),
-                classes[i].get_course().get_name() + " (" + classes[i].get_course().get_number() + ", " + str(classes[i].get_course().get_maxNumbOfStudents()) + ")",
-                classes[i].get_room().get_number() + " (" + str(classes[i].get_room().get_seatingCapacity()) + ")",
-                classes[i].get_instructor().get_name() + " (" + str(classes[i].get_instructor().get_id()) + ")",
-                classes[i].get_meetingTime().get_time() + " (" + str(classes[i].get_meetingTime().get_id())+ ")",
+                [
+                    str(i + 1),
+                    classes[i].get_dept().get_name(),
+                    classes[i].get_course().get_name()
+                    + " ("
+                    + classes[i].get_course().get_number()
+                    + ", "
+                    + str(classes[i].get_course().get_maxNumbOfStudents())
+                    + ")",
+                    classes[i].get_room().get_number()
+                    + " ("
+                    + str(classes[i].get_room().get_seatingCapacity())
+                    + ")",
+                    classes[i].get_instructor().get_name()
+                    + " ("
+                    + str(classes[i].get_instructor().get_id())
+                    + ")",
+                    classes[i].get_meetingTime().get_time()
+                    + " ("
+                    + str(classes[i].get_meetingTime().get_id())
+                    + ")",
                 ]
             )
         print(table)
