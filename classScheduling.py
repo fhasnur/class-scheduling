@@ -529,7 +529,7 @@ class DisplayMgr:
                 "schedules #",
                 "fitness",
                 "# of conflicts",
-                "classes [dept,class, room, instructor, meeting-time]",
+                # "classes [dept,class, room, instructor, meeting-time]",
             ]
         )
         schedules = population.get_schedules()
@@ -539,7 +539,7 @@ class DisplayMgr:
                     str(i),
                     round(schedules[i].get_fitness(), 3),
                     schedules[i].get_numbOfConflicts(),
-                    schedules[i],
+                    # schedules[i],
                 ]
             )
         print(table1)
