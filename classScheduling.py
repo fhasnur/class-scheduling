@@ -127,16 +127,26 @@ class Data:
             course10,
             course11,
         ]
-        mat1 = Department("MAT1", [course1, course3, course5])
-        pmat1 = Department("PMAT1", [course2, course10, course11])
-        pmicp1 = Department("PMICP1", [course6, course7, course8])
-        mat3 = Department("MAT3", [course4, course5, course6])
-        pmat3 = Department("PMAT3", [course2, course10, course11])
-        pmicp3 = Department("PMICP3", [course6, course7, course9])
-        mat5 = Department("MAT5", [course9, course10, course11])
-        pmat5 = Department("PMAT5", [course8, course10, course11])
-        pmicp5 = Department("PMICP5", [course7, course8, course9])
-        self._depts = [mat1, pmat1, pmicp1, mat3, pmat3, pmicp3, mat5, pmat5, pmicp5]
+        mats1 = Department("MAT S1", [course1, course3, course5])
+        pmats1 = Department("PMAT S1", [course2, course10, course11])
+        pmicps1 = Department("PMICP S1", [course6, course7, course8])
+        mats3 = Department("MAT S3", [course4, course5, course6])
+        pmats3 = Department("PMAT S3", [course2, course10, course11])
+        pmicps3 = Department("PMICP S3", [course6, course7, course9])
+        mats5 = Department("MAT S5", [course9, course10, course11])
+        pmats5 = Department("PMAT S5", [course8, course10, course11])
+        pmicps5 = Department("PMICP S5", [course7, course8, course9])
+        self._depts = [
+            mats1,
+            pmats1,
+            pmicps1,
+            mats3,
+            pmats3,
+            pmicps3,
+            mats5,
+            pmats5,
+            pmicps5,
+        ]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
             self._numberOfClasses += len(self._depts[i].get_courses())
