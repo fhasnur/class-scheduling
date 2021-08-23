@@ -1,10 +1,10 @@
 import prettytable as prettytable
 import random as rnd
 
-POPULATION_SIZE = 9
+POPULATION_SIZE = 10
 NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
-MUTATION_RATE = 0.1
+MUTATION_RATE = 0.2
 
 
 class Data:
@@ -21,17 +21,24 @@ class Data:
         ["Lab", 40],
     ]
     MEETING_TIMES = [
-        ["J1", "07:30 - 08.20"],
-        ["J2", "09.10 - 10.00"],
-        ["J3", "10:50 - 11.40"],
-        ["J4", "12:00 - 12.50"],
-        ["J5", "12:50 - 13.10"],
-        ["J6", "13:10 - 14.00"],
-        ["J7", "14:00 - 14.50"],
-        ["J8", "14:50 - 15.40"],
-        ["J9", "15:40 - 16.30"],
-        ["J10", "16:30 - 17.30"],
-        ["J11", "17:30 - 18.00"],
+        ["J1", "07:30 - 08.10"],
+        ["J2", "08.10 - 08.50"],
+        ["J3", "09:00 - 09.40"],
+        ["J4", "09:40 - 10.20"],
+        ["J5", "10:30 - 11.10"],
+        ["J6", "11:10 - 11.50"],
+        ["J7", "13:00 - 13.40"],
+        ["J8", "13:40 - 14.20"],
+        ["J9", "14:25 - 15.05"],
+        ["J10", "16:00 - 16.40"],
+        ["J11", "16:40 - 17.20"],
+    ]
+    MEETING_DAYS = [
+        ["H1", "Senin"],
+        ["H2", "Selasa"],
+        ["H3", "Rabu"],
+        ["H4", "Kamis"],
+        ["H5", "Jum'at"],
     ]
     INSTRUCTORS = [
         ["I1", "Dr James Web"],
@@ -49,6 +56,7 @@ class Data:
     def __init__(self):
         self._rooms = []
         self._meetingTimes = []
+        self._meetingDays = []
         self._instructors = []
         for i in range(0, len(self.ROOMS)):
             self._rooms.append(Room(self.ROOMS[i][0], self.ROOMS[i][1]))
@@ -56,26 +64,69 @@ class Data:
             self._meetingTimes.append(
                 MeetingTime(self.MEETING_TIMES[i][0], self.MEETING_TIMES[i][1])
             )
+        for i in range(0, len(self.MEETING_DAYS)):
+            self._meetingDays.append(
+                MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1])
+            )
         for i in range(0, len(self.INSTRUCTORS)):
             self._instructors.append(
                 Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1])
             )
-        course1 = Course("C1", "Landasan Matematika", [self._instructors[0], self._instructors[1]], 25)
+        course1 = Course(
+            "C1",
+            "Landasan Matematika",
+            [self._instructors[0], self._instructors[1]],
+            25,
+        )
         course2 = Course(
             "C2",
             "Kalkulus I",
             [self._instructors[0], self._instructors[1], self._instructors[2]],
             35,
         )
-        course3 = Course("C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25)
-        course4 = Course("C4", "Pendidikan Agama Islam", [self._instructors[2], self._instructors[3]], 30)
-        course5 = Course("C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35)
-        course6 = Course("C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45)
-        course7 = Course("C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 45)
-        self._courses = [course1, course2, course3, course4, course5, course6, course7]
-        dept1 = Department("MAT", [course1, course3])
-        dept2 = Department("PMAT", [course2, course4, course5])
-        dept3 = Department("PMICP", [course6, course7])
+        course3 = Course(
+            "C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25
+        )
+        course4 = Course(
+            "C4",
+            "Pendidikan Agama Islam",
+            [self._instructors[2], self._instructors[3]],
+            30,
+        )
+        course5 = Course(
+            "C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35
+        )
+        course6 = Course(
+            "C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45
+        )
+        course7 = Course(
+            "C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 45
+        )
+        course8 = Course(
+            "C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 45
+        )
+        course9 = Course(
+            "C9", "Analisis Kompleks", [self._instructors[3], self._instructors[4]], 45
+        )
+        course10 = Course(
+            "C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 45
+        )
+        course11 = Course(
+            "C11", "Struktur Aljabar", [self._instructors[8], self._instructors[9]], 45
+        )
+        self._courses = [
+            course1,
+            course2,
+            course3,
+            course4,
+            course5,
+            course9,
+            course10,
+            course11,
+        ]
+        dept1 = Department("MAT", [course1, course3, course5, course6, course9])
+        dept2 = Department("PMAT", [course2, course4, course5, course10, course11])
+        dept3 = Department("PMICP", [course6, course7, course8, course9])
         self._depts = [dept1, dept2, dept3]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
@@ -95,6 +146,9 @@ class Data:
 
     def get_meetingTimes(self):
         return self._meetingTimes
+
+    def get_meetingDays(self):
+        return self._meetingDays
 
     def get_numberOfClasses(self):
         return self._numberOfClasses
@@ -134,6 +188,11 @@ class Schedule:
                         rnd.randrange(0, len(data.get_meetingTimes()))
                     ]
                 )
+                newClass.set_meetingDay(
+                    data.get_meetingDays()[
+                        rnd.randrange(0, len(data.get_meetingDays()))
+                    ]
+                )
                 newClass.set_room(
                     data.get_rooms()[rnd.randrange(0, len(data.get_rooms()))]
                 )
@@ -157,7 +216,8 @@ class Schedule:
             for j in range(0, len(classes)):
                 if j >= i:
                     if (
-                        classes[i].get_meetingTime() == classes[j].get_meetingTime()
+                        classes[i].get_meetingDay() == classes[j].get_meetingDay()
+                        and classes[i].get_meetingTime() == classes[j].get_meetingTime()
                         and classes[i].get_id() != classes[j].get_id()
                     ):
                         if classes[i].get_id() == classes[j].get_id():
@@ -299,6 +359,18 @@ class MeetingTime:
         return self._time
 
 
+class MeetingDay:
+    def __init__(self, id, day):
+        self._id = id
+        self._day = day
+
+    def get_id(self):
+        return self._id
+
+    def get_day(self):
+        return self._day
+
+
 class Department:
     def __init__(self, name, courses):
         self._name = name
@@ -318,6 +390,7 @@ class Class:
         self._course = course
         self._instructor = None
         self._meetingTime = None
+        self._meetingDay = None
         self._room = None
 
     def get_id(self):
@@ -335,6 +408,9 @@ class Class:
     def get_meetingTime(self):
         return self._meetingTime
 
+    def get_meetingDay(self):
+        return self._meetingDay
+
     def get_room(self):
         return self._room
 
@@ -343,6 +419,9 @@ class Class:
 
     def set_meetingTime(self, meetingTime):
         self._meetingTime = meetingTime
+
+    def set_meetingDay(self, meetingDay):
+        self._meetingDay = meetingDay
 
     def set_room(self, room):
         self._room = room
@@ -358,17 +437,20 @@ class Class:
             + str(self._instructor.get_id())
             + ","
             + str(self._meetingTime.get_id())
+            + ","
+            + str(self._meetingDay.get_id())
         )
 
 
 class DisplayMgr:
     def print_available_data(self):
-        print(">All Available Data")
+        print(">Deklarasikan semua data")
         self.print_dept()
         self.print_course()
         self.print_room()
         self.print_instructor()
         self.print_meeting_times()
+        self.print_meeting_days()
 
     def print_dept(self):
         depts = data.get_depts()
@@ -432,6 +514,15 @@ class DisplayMgr:
             )
         print(availableMeetingTimeTable)
 
+    def print_meeting_days(self):
+        availableMeetingDayTable = prettytable.PrettyTable(["id", "Meeting Day"])
+        meetingDays = data.get_meetingDays()
+        for i in range(0, len(meetingDays)):
+            availableMeetingDayTable.add_row(
+                [meetingDays[i].get_id(), meetingDays[i].get_day()]
+            )
+        print(availableMeetingDayTable)
+
     def print_generation(self, population):
         table1 = prettytable.PrettyTable(
             [
@@ -463,6 +554,7 @@ class DisplayMgr:
                 "Room(Capacity)",
                 "Instuctors (Id)",
                 "Meeting Time (Id)",
+                "Meeting Day (Id)",
             ]
         )
         for i in range(0, len(classes)):
@@ -487,6 +579,10 @@ class DisplayMgr:
                     classes[i].get_meetingTime().get_time()
                     + " ("
                     + str(classes[i].get_meetingTime().get_id())
+                    + ")",
+                    classes[i].get_meetingDay().get_day()
+                    + " ("
+                    + str(classes[i].get_meetingDay().get_id())
                     + ")",
                 ]
             )
