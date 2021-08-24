@@ -9,7 +9,7 @@ MUTATION_RATE = 0.2
 
 class Data:
     ROOMS = [
-        ["Aula FH", 50],
+        ["Aula FH", 45],
         ["FG 202", 35],
         ["FG 204", 35],
         ["FG 205", 35],
@@ -51,6 +51,7 @@ class Data:
         ["I8", "Mr Danial Fanzeka"],
         ["I9", "Mr Bambang"],
         ["I10", "Mr Budi"],
+        ["I11", "Mr Tengku"],
     ]
 
     def __init__(self):
@@ -100,19 +101,34 @@ class Data:
             "C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45
         )
         course7 = Course(
-            "C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 45
+            "C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 30
         )
         course8 = Course(
-            "C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 45
+            "C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 35
         )
         course9 = Course(
             "C9", "Analisis Kompleks", [self._instructors[3], self._instructors[4]], 45
         )
         course10 = Course(
-            "C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 45
+            "C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 35
         )
         course11 = Course(
-            "C11", "Struktur Aljabar", [self._instructors[8], self._instructors[9]], 45
+            "C11", "Teori Bilangan", [self._instructors[6], self._instructors[9]], 35
+        )
+        course12 = Course(
+            "C12", "Landasan Keguruan", [self._instructors[8], self._instructors[9]], 30
+        )
+        course13 = Course(
+            "C13", "Geometri Analitik", [self._instructors[8], self._instructors[9]], 40
+        )
+        course14 = Course(
+            "C14", "Aljabar Linear", [self._instructors[8], self._instructors[9]], 25
+        )
+        course15 = Course(
+            "C15",
+            "Kalkulus Differensial",
+            [self._instructors[8], self._instructors[9]],
+            40,
         )
         self._courses = [
             course1,
@@ -126,16 +142,20 @@ class Data:
             course9,
             course10,
             course11,
+            course12,
+            course13,
+            course14,
+            course15,
         ]
-        mats1 = Department("MAT S1", [course1, course3, course5])
+        mats1 = Department("MAT S1", [course1, course3, course5, course12])
         pmats1 = Department("PMAT S1", [course2, course10, course11])
         pmicps1 = Department("PMICP S1", [course6, course7, course8])
-        mats3 = Department("MAT S3", [course4, course5, course6])
+        mats3 = Department("MAT S3", [course4, course5, course6, course13])
         pmats3 = Department("PMAT S3", [course2, course10, course11])
         pmicps3 = Department("PMICP S3", [course6, course7, course9])
-        mats5 = Department("MAT S5", [course9, course10, course11])
+        mats5 = Department("MAT S5", [course9, course10, course11, course15])
         pmats5 = Department("PMAT S5", [course8, course10, course11])
-        pmicps5 = Department("PMICP S5", [course7, course8, course9])
+        pmicps5 = Department("PMICP S5", [course7, course8, course9, course14])
         self._depts = [
             mats1,
             pmats1,
