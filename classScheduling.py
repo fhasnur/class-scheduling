@@ -9,7 +9,6 @@ MUTATION_RATE = 0.2
 
 class Data:
     ROOMS = [
-        ["Aula FH", 45],
         ["FG 202", 35],
         ["FG 204", 35],
         ["FG 205", 35],
@@ -19,6 +18,7 @@ class Data:
         ["MDR2", 15],
         ["Workshop", 35],
         ["Lab", 40],
+        ["Aula FH", 45],
     ]
     MEETING_TIMES = [
         ["J1", "07:30 - 08.10"],
@@ -41,17 +41,44 @@ class Data:
         ["H5", "Jum'at"],
     ]
     INSTRUCTORS = [
-        ["I1", "Dr James Web"],
-        ["I2", "Mr Mike Brown"],
-        ["I3", "Dr Steve Day"],
-        ["I4", "Mr Fandi Hasnur"],
-        ["I5", "Mrs Putri Melati"],
-        ["I6", "Dr Harun Rasyid"],
-        ["I7", "Mr Haer"],
-        ["I8", "Mr Danial Fanzeka"],
-        ["I9", "Mr Bambang"],
-        ["I10", "Mr Budi"],
-        ["I11", "Mr Tengku"],
+        ["I1", "Prof Hamzah Upu"],
+        ["I2", "Syahrullah Asyari"],
+        ["I3", "Dr Ilham Minggi"],
+        ["I4", "Dr Ahmad Talib"],
+        ["I5", "Dr Rosidah"],
+        ["I6", "Ahmad Zaki"],
+        ["I7", "Dr Muhammad Darwis"],
+        ["I8", "Said Fachry Assagaf"],
+        ["I9", "Dr Hamda"],
+        ["I10", "Iwan Setiawan HR"],
+        ["I11", "Dr Rusli"],
+        ["I12", "Dr Alimuddin"],
+        ["I13", "Dr Bernard"],
+        ["I14", "Muh. Husnul Khuluq"],
+        ["I15", "Dr Asdar"],
+        ["I16", "Sabri Ph.D"],
+        ["I17", "Dr Hisyam Ihsan"],
+        ["I18", "Fajar Arwadi"],
+        ["I19", "Dr Rahmat Syam"],
+        ["I20", "Prof Abdul Rahman"],
+        ["I21", "Dr Djadir"],
+        ["I22", "Drs Muhammad Dinar"],
+        ["I23", "Prof Usman Mulbar"],
+        ["I24", "Syamsuddin Mas'ud"],
+        ["I25", "Prof Suradi"],
+        ["I26", "Dr Maya Sari Wahyuni"],
+        ["I25", "Prof Syafruddin Side"],
+        ["I27", "Irwan S.Si"],
+        ["I28", "Dr Kamaruddin Hasan"],
+        ["I29", "Dr Wahidah Sanusi"],
+        ["I30", "Sukarna, S.Pd"],
+        ["I31", "Nasrullah, S.Pd"],
+        ["I32", "Dr Muhammad Abdy"],
+        ["I33", "Dr Awi"],
+        ["I34", "Sulaiman, S.Si"],
+        ["I35", "Nurwati Djam'an"],
+        ["I36", "Prof Baso Intang"],
+        ["I37", "Prof Nurdin"],
     ]
 
     def __init__(self):
@@ -147,25 +174,31 @@ class Data:
             course14,
             course15,
         ]
-        mats1 = Department("MAT S1", [course1, course3, course5, course12])
-        pmats1 = Department("PMAT S1", [course2, course10, course11])
-        pmicps1 = Department("PMICP S1", [course6, course7, course8])
-        mats3 = Department("MAT S3", [course4, course5, course6, course13])
-        pmats3 = Department("PMAT S3", [course2, course10, course11])
-        pmicps3 = Department("PMICP S3", [course6, course7, course9])
-        mats5 = Department("MAT S5", [course9, course10, course11, course15])
-        pmats5 = Department("PMAT S5", [course8, course10, course11])
-        pmicps5 = Department("PMICP S5", [course7, course8, course9, course14])
+        A1_S1 = Department("A1 S1", [course1, course3, course5, course12])
+        A2_S1 = Department("A2 S1", [course2, course10, course11])
+        B_S1 = Department("B S1", [course6, course7, course8])
+        C_S1 = Department("C S1", [course6, course7, course8])
+        A1_S3 = Department("A1 S3", [course4, course5, course6, course13])
+        A2_S3 = Department("A2 S3", [course2, course10, course11])
+        B_S3 = Department("B S3", [course6, course7, course9])
+        C_S3 = Department("C S3", [course6, course7, course9])
+        A1_S5 = Department("A1 S5", [course9, course10, course11, course15])
+        A2_S5 = Department("A2 S5", [course8, course10, course11])
+        B_S5 = Department("B S5", [course7, course8, course9, course14])
+        C_S5 = Department("C S5", [course7, course8, course9, course14])
         self._depts = [
-            mats1,
-            pmats1,
-            pmicps1,
-            mats3,
-            pmats3,
-            pmicps3,
-            mats5,
-            pmats5,
-            pmicps5,
+            A1_S1,
+            A2_S1,
+            B_S1,
+            C_S1,
+            A1_S3,
+            A2_S3,
+            B_S3,
+            C_S3,
+            A1_S5,
+            A2_S5,
+            B_S5,
+            C_S5,
         ]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
