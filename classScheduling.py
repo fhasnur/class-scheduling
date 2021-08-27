@@ -1,10 +1,69 @@
 import prettytable as prettytable
 import random as rnd
+from interval import interval, inf, imath
 
 POPULATION_SIZE = 10
 NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
 MUTATION_RATE = 0.2
+
+
+class Mamdani:
+
+    POPULATION_SIZE = [
+        ["SMALL", interval(50, 250)],
+        ["MEDIUM", interval(80, 275)],
+        ["LARGE", interval(350, 500)],
+    ]
+    GENERATION = [
+        ["SHORT", interval(50, 200)],
+        ["MEDIUM", interval(80, 275)],
+        ["LONG", interval(350, 500)],
+    ]
+    PROB_CROSSOVER = [
+        ["SMALL", interval(0.625, 0.7)],
+        ["MEDIUM", interval(0.63, 0.78)],
+        ["LARGE", interval(0.72, 0.87)],
+        ["VERY LARGE", interval(0.8, 0.875)],
+    ]
+    PROB_MUTASI = [
+        ["VERY SMALL", interval(0.025, 0.1)],
+        ["SMALL", interval(0.047, 0.14)],
+        ["MEDIUM", interval(0.1, 0.2)],
+        ["LARGE", interval(0.15, 0.225)],
+    ]
+
+    def __init__(self, probCrossover, probMutasi):
+        self._populationSize = populationSize
+        self._generation = generation
+
+        if self.POPULATION_SIZE[0] and self.GENERATION[0]:
+            probCrossover = self.PROB_CROSSOVER[1]
+            probMutasi = self.PROB_MUTASI[3]
+        elif self.POPULATION_SIZE[1] and self.GENERATION[0]:
+            probCrossover = self.PROB_CROSSOVER[0]
+            probMutasi = self.PROB_MUTASI[2]
+        elif self.POPULATION_SIZE[2] and self.GENERATION[0]:
+            probCrossover = self.PROB_CROSSOVER[0]
+            probMutasi = self.PROB_MUTASI[1]
+        elif self.POPULATION_SIZE[0] and self.GENERATION[1]:
+            probCrossover = self.PROB_CROSSOVER[2]
+            probMutasi = self.PROB_MUTASI[2]
+        elif self.POPULATION_SIZE[1] and self.GENERATION[1]:
+            probCrossover = self.PROB_CROSSOVER[2]
+            probMutasi = self.PROB_MUTASI[1]
+        elif self.POPULATION_SIZE[2] and self.GENERATION[1]:
+            probCrossover = self.PROB_CROSSOVER[1]
+            probMutasi = self.PROB_MUTASI[0]
+        elif self.POPULATION_SIZE[0] and self.GENERATION[2]:
+            probCrossover = self.PROB_CROSSOVER[3]
+            probMutasi = self.PROB_MUTASI[1]
+        elif self.POPULATION_SIZE[1] and self.GENERATION[2]:
+            probCrossover = self.PROB_CROSSOVER[3]
+            probMutasi = self.PROB_MUTASI[0]
+        elif self.POPULATION_SIZE[2] and self.GENERATION[2]:
+            probCrossover = self.PROB_CROSSOVER[1]
+            probMutasi = self.PROB_MUTASI[0]
 
 
 class Data:
