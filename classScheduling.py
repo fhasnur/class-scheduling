@@ -1,11 +1,21 @@
 import prettytable as prettytable
 import random as rnd
-from interval import interval, inf, imath
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
 
 POPULATION_SIZE = 10
 NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
 MUTATION_RATE = 0.2
+
+class FuzzyMamdani:
+
+    def __init__(self):
+        self.population_size =ctrl.Antecedent(np.linspace(0, 1000), 'Population Size')
+        self.generation = ctrl.Antecedent(np.linspace(0, 1000), 'Generation')
+        self.prob_crossover = ctrl.Consequent(np.linspace(0.6, 0.9), 'Prob Crossover')
+        self.prob_mutasi = ctrl.Consequent(np.linspace(0, 0.250), 'Prob Mutasi')
 
 
 class Data:
