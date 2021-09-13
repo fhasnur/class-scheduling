@@ -12,11 +12,16 @@ MUTATION_RATE = 0.2
 class FuzzyMamdani:
 
     def __init__(self):
-        self.population_size =ctrl.Antecedent(np.linspace(0, 1000), 'Population Size')
+        self.population_size = ctrl.Antecedent(np.linspace(0, 1000), 'Population Size')
         self.generation = ctrl.Antecedent(np.linspace(0, 1000), 'Generation')
         self.prob_crossover = ctrl.Consequent(np.linspace(0.6, 0.9), 'Prob Crossover')
         self.prob_mutasi = ctrl.Consequent(np.linspace(0, 0.250), 'Prob Mutasi')
-
+        self.membership()
+    
+    def membership(self):
+        self.population_size.automf(3)
+        self.generation.automf(3)
+        
 
 class Data:
     ROOMS = [
