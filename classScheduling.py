@@ -29,6 +29,10 @@ class FuzzyMamdani:
         self.prob_crossover['large'] = fuzz.trapmf(self.prob_crossover.universe, [0.72, 0.78, 0.8, 0.87])
         self.prob_crossover['very_large'] = fuzz.smf(self.prob_crossover.universe, 0.8, 0.875)
 
+        self.prob_mutasi['very_small'] = fuzz.zmf(self.prob_mutasi.universe, 0.025, 0.1)
+        self.prob_mutasi['small'] = fuzz.trapmf(self.prob_mutasi.universe, [0.047, 0.083, 0.1, 0.14])
+        self.prob_mutasi['medium'] = fuzz.trapmf(self.prob_mutasi.universe, [0.1, 0.14, 0.167, 0.2])
+        self.prob_mutasi['large'] = fuzz.smf(self.prob_mutasi.universe, 0.15, 0.225)
 
 class Data:
     ROOMS = [
