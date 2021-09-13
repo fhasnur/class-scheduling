@@ -21,7 +21,14 @@ class FuzzyMamdani:
     def membership(self):
         self.population_size.automf(3)
         self.generation.automf(3)
-        
+
+    def customMembership(self):
+        self.membership()
+        self.prob_crossover['small'] = fuzz.zmf(self.prob_crossover.universe, 0.625, 0.7)
+        self.prob_crossover['medium'] = fuzz.trapmf(self.prob_crossover.universe, [0.63, 0.7, 0.72, 0.78])
+        self.prob_crossover['large'] = fuzz.trapmf(self.prob_crossover.universe, [0.72, 0.78, 0.8, 0.87])
+        self.prob_crossover['very_large'] = fuzz.smf(self.prob_crossover.universe, 0.8, 0.875)
+
 
 class Data:
     ROOMS = [
