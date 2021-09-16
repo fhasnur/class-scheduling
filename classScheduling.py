@@ -9,30 +9,32 @@ NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
 MUTATION_RATE = 0.2
 
-class FuzzyMamdani:
 
+class FuzzyMamdani:
     def __init__(self):
-        self.population_size = ctrl.Antecedent(np.linspace(0, 1000), 'Population Size')
-        self.generation = ctrl.Antecedent(np.linspace(0, 1000), 'Generation')
-        self.prob_crossover = ctrl.Consequent(np.linspace(0.6, 0.9), 'Prob Crossover')
-        self.prob_mutasi = ctrl.Consequent(np.linspace(0, 0.250), 'Prob Mutasi')
-        self.membership()
-    
-    def membership(self):
-        self.population_size.automf(3)
-        self.generation.automf(3)
+        self.population_size = ctrl.Antecedent(np.linspace(0, 1000), "Population Size")
+        self.generation = ctrl.Antecedent(np.linspace(0, 1000), "Generation")
+        self.prob_crossover = ctrl.Consequent(np.linspace(0.6, 0.9), "Prob Crossover")
+        self.prob_mutasi = ctrl.Consequent(np.linspace(0, 0.250), "Prob Mutasi")
 
     def customMembership(self):
-        self.membership()
-        self.prob_crossover['small'] = fuzz.zmf(self.prob_crossover.universe, 0.625, 0.7)
-        self.prob_crossover['medium'] = fuzz.trapmf(self.prob_crossover.universe, [0.63, 0.7, 0.72, 0.78])
-        self.prob_crossover['large'] = fuzz.trapmf(self.prob_crossover.universe, [0.72, 0.78, 0.8, 0.87])
-        self.prob_crossover['very_large'] = fuzz.smf(self.prob_crossover.universe, 0.8, 0.875)
+        self.population_size["small"] = fuzz.zmf(self.population_size.universe, 50, 250)
+        self.population_size["medium"] = fuzz.gaussmf(self.population_size.universe, mean=275, sigma=80)
+        self.population_size["large"] = fuzz.smf(self.population_size.universe, 350, 500)
 
-        self.prob_mutasi['very_small'] = fuzz.zmf(self.prob_mutasi.universe, 0.025, 0.1)
-        self.prob_mutasi['small'] = fuzz.trapmf(self.prob_mutasi.universe, [0.047, 0.083, 0.1, 0.14])
-        self.prob_mutasi['medium'] = fuzz.trapmf(self.prob_mutasi.universe, [0.1, 0.14, 0.167, 0.2])
-        self.prob_mutasi['large'] = fuzz.smf(self.prob_mutasi.universe, 0.15, 0.225)
+        self.generation["short"] = fuzz.zmf(self.generation.universe, 50, 200)
+        self.generation["medium"] = fuzz.gaussmf(self.generation.universe, mean=275, sigma=80)
+        self.generation["long"] = fuzz.smf(self.generation.universe, 350, 500)
+
+        self.prob_crossover["small"] = fuzz.zmf(self.prob_crossover.universe, 0.625, 0.7)
+        self.prob_crossover["medium"] = fuzz.trapmf(self.prob_crossover.universe, [0.63, 0.7, 0.72, 0.78])
+        self.prob_crossover["large"] = fuzz.trapmf(self.prob_crossover.universe, [0.72, 0.78, 0.8, 0.87])
+        self.prob_crossover["very_large"] = fuzz.smf(self.prob_crossover.universe, 0.8, 0.875)
+
+        self.prob_mutasi["very_small"] = fuzz.zmf(self.prob_mutasi.universe, 0.025, 0.1)
+        self.prob_mutasi["small"] = fuzz.trapmf(self.prob_mutasi.universe, [0.047, 0.083, 0.1, 0.14])
+        self.prob_mutasi["medium"] = fuzz.trapmf(self.prob_mutasi.universe, [0.1, 0.14, 0.167, 0.2])
+        self.prob_mutasi["large"] = fuzz.smf(self.prob_mutasi.universe, 0.15, 0.225)
 
 class Data:
     ROOMS = [
