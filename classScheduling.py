@@ -57,9 +57,6 @@ class FuzzyMamdani:
         self.ctrl_value.input['Generation'] = 100
 
         self.ctrl_value.compute()
-        
-
-
 
 
 class Data:
@@ -144,91 +141,28 @@ class Data:
         for i in range(0, len(self.ROOMS)):
             self._rooms.append(Room(self.ROOMS[i][0], self.ROOMS[i][1]))
         for i in range(0, len(self.MEETING_TIMES)):
-            self._meetingTimes.append(
-                MeetingTime(self.MEETING_TIMES[i][0], self.MEETING_TIMES[i][1])
-            )
+            self._meetingTimes.append(MeetingTime(self.MEETING_TIMES[i][0], self.MEETING_TIMES[i][1]))
         for i in range(0, len(self.MEETING_DAYS)):
-            self._meetingDays.append(
-                MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1])
-            )
+            self._meetingDays.append(MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1]))
         for i in range(0, len(self.INSTRUCTORS)):
-            self._instructors.append(
-                Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1])
-            )
-        course1 = Course(
-            "C1",
-            "Landasan Matematika",
-            [self._instructors[0], self._instructors[1]],
-            25,
-        )
-        course2 = Course(
-            "C2",
-            "Kalkulus I",
-            [self._instructors[0], self._instructors[1], self._instructors[2]],
-            35,
-        )
-        course3 = Course(
-            "C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25
-        )
-        course4 = Course(
-            "C4",
-            "Pendidikan Agama Islam",
-            [self._instructors[2], self._instructors[3]],
-            30,
-        )
-        course5 = Course(
-            "C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35
-        )
-        course6 = Course(
-            "C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45
-        )
-        course7 = Course(
-            "C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 30
-        )
-        course8 = Course(
-            "C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 35
-        )
-        course9 = Course(
-            "C9", "Analisis Kompleks", [self._instructors[3], self._instructors[4]], 45
-        )
-        course10 = Course(
-            "C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 35
-        )
-        course11 = Course(
-            "C11", "Teori Bilangan", [self._instructors[6], self._instructors[9]], 35
-        )
-        course12 = Course(
-            "C12", "Landasan Keguruan", [self._instructors[8], self._instructors[9]], 30
-        )
-        course13 = Course(
-            "C13", "Geometri Analitik", [self._instructors[8], self._instructors[9]], 40
-        )
-        course14 = Course(
-            "C14", "Aljabar Linear", [self._instructors[8], self._instructors[9]], 25
-        )
-        course15 = Course(
-            "C15",
-            "Kalkulus Differensial",
-            [self._instructors[8], self._instructors[9]],
-            40,
-        )
-        self._courses = [
-            course1,
-            course2,
-            course3,
-            course4,
-            course5,
-            course6,
-            course7,
-            course8,
-            course9,
-            course10,
-            course11,
-            course12,
-            course13,
-            course14,
-            course15,
-        ]
+            self._instructors.append(Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1]))
+        course1 = Course("C1", "Landasan Matematika", [self._instructors[0], self._instructors[1]], 25)
+        course2 = Course("C2", "Kalkulus I", [self._instructors[0], self._instructors[1], self._instructors[2]],35)
+        course3 = Course("C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25)
+        course4 = Course("C4", "Pendidikan Agama Islam", [self._instructors[2], self._instructors[3]], 30)
+        course5 = Course("C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35)
+        course6 = Course("C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45)
+        course7 = Course("C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 30)
+        course8 = Course("C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 35)
+        course9 = Course("C9", "Analisis Kompleks", [self._instructors[3], self._instructors[4]], 45)
+        course10 = Course("C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 35)
+        course11 = Course("C11", "Teori Bilangan", [self._instructors[6], self._instructors[9]], 35)
+        course12 = Course("C12", "Landasan Keguruan", [self._instructors[8], self._instructors[9]], 30)
+        course13 = Course("C13", "Geometri Analitik", [self._instructors[8], self._instructors[9]], 40)
+        course14 = Course("C14", "Aljabar Linear", [self._instructors[8], self._instructors[9]], 25)
+        course15 = Course("C15","Kalkulus Differensial", [self._instructors[8], self._instructors[9]], 40)
+        self._courses = [course1, course2, course3, course4, course5, course6, course7, course8, course9, course10, course11, course12, course13, course14, course15]
+
         A1_S1 = Department("A1 S1", [course1, course3, course5, course12])
         A2_S1 = Department("A2 S1", [course2, course10, course11])
         B_S1 = Department("B S1", [course6, course7, course8])
@@ -241,20 +175,7 @@ class Data:
         A2_S5 = Department("A2 S5", [course8, course10, course11])
         B_S5 = Department("B S5", [course7, course8, course9, course14])
         C_S5 = Department("C S5", [course7, course8, course9, course14])
-        self._depts = [
-            A1_S1,
-            A2_S1,
-            B_S1,
-            C_S1,
-            A1_S3,
-            A2_S3,
-            B_S3,
-            C_S3,
-            A1_S5,
-            A2_S5,
-            B_S5,
-            C_S5,
-        ]
+        self._depts = [A1_S1, A2_S1, B_S1, C_S1, A1_S3, A2_S3, B_S3, C_S3, A1_S5, A2_S5, B_S5, C_S5]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
             self._numberOfClasses += len(self._depts[i].get_courses())
