@@ -38,15 +38,28 @@ class FuzzyMamdani:
 
     def rule(self):
         self.customMembership()
-        rule1 = ctrl.Rule(self.population_size['small'] and self.generation['short'], self.prob_crossover['medium'] and self.prob_mutasi['large'])
-        rule2 = ctrl.Rule(self.population_size['medium'] and self.generation['short'], self.prob_crossover['small'] and self.prob_mutasi['medium'])
-        rule3 = ctrl.Rule(self.population_size['large'] and self.generation['short'], self.prob_crossover['small'] and self.prob_mutasi['small'])
-        rule4 = ctrl.Rule(self.population_size['small'] and self.generation['medium'], self.prob_crossover['large'] and self.prob_mutasi['medium'])
-        rule5 = ctrl.Rule(self.population_size['medium'] and self.generation['medium'], self.prob_crossover['large'] and self.prob_mutasi['small'])
-        rule6 = ctrl.Rule(self.population_size['large'] and self.generation['medium'], self.prob_crossover['medium'] and self.prob_mutasi['very_small'])
-        rule7 = ctrl.Rule(self.population_size['small'] and self.generation['long'], self.prob_crossover['very_large'] and self.prob_mutasi['small'])
-        rule8 = ctrl.Rule(self.population_size['medium'] and self.generation['long'], self.prob_crossover['very_large'] and self.prob_mutasi['very_small'])
-        rule9 = ctrl.Rule(self.population_size['large'] and self.generation['long'], self.prob_crossover['large'] and self.prob_mutasi['very_small'])
+        self.rule1 = ctrl.Rule(self.population_size["small"] and self.generation["short"], self.prob_crossover["medium"] and self.prob_mutasi["large"])
+        self.rule2 = ctrl.Rule(self.population_size["medium"] and self.generation["short"], self.prob_crossover["small"] and self.prob_mutasi["medium"])
+        self.rule3 = ctrl.Rule(self.population_size["large"] and self.generation["short"], self.prob_crossover["small"] and self.prob_mutasi["small"])
+        self.rule4 = ctrl.Rule(self.population_size["small"] and self.generation["medium"], self.prob_crossover["large"] and self.prob_mutasi["medium"])
+        self.rule5 = ctrl.Rule(self.population_size["medium"] and self.generation["medium"], self.prob_crossover["large"] and self.prob_mutasi["small"])
+        self.rule6 = ctrl.Rule(self.population_size["large"] and self.generation["medium"], self.prob_crossover["medium"] and self.prob_mutasi["very_small"])
+        self.rule7 = ctrl.Rule(self.population_size["small"] and self.generation["long"], self.prob_crossover["very_large"] and self.prob_mutasi["small"])
+        self.rule8 = ctrl.Rule(self.population_size["medium"] and self.generation["long"], self.prob_crossover["very_large"] and self.prob_mutasi["very_small"])
+        self.rule9 = ctrl.Rule(self.population_size["large"] and self.generation["long"], self.prob_crossover["large"] and self.prob_mutasi["very_small"])
+
+    def controlSystem(self):
+        self.rule()
+        value = ctrl.ControlSystem([self.rule1, self.rule2, self.rule3, self.rule4, self.rule5, self.rule6, self.rule7, self.rule8, self.rule9])
+        self.ctrl_value = ctrl.ControlSystemSimulation(value)
+
+        self.ctrl_value.input['Population Size'] = 10
+        self.ctrl_value.input['Generation'] = 100
+
+        self.ctrl_value.compute()
+        
+
+
 
 
 class Data:
