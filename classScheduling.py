@@ -36,6 +36,19 @@ class FuzzyMamdani:
         self.prob_mutasi["medium"] = fuzz.trapmf(self.prob_mutasi.universe, [0.1, 0.14, 0.167, 0.2])
         self.prob_mutasi["large"] = fuzz.smf(self.prob_mutasi.universe, 0.15, 0.225)
 
+    def rule(self):
+        self.customMembership()
+        rule1 = ctrl.Rule(self.population_size['small'] and self.generation['short'], self.prob_crossover['medium'] and self.prob_mutasi['large'])
+        rule2 = ctrl.Rule(self.population_size['medium'] and self.generation['short'], self.prob_crossover['small'] and self.prob_mutasi['medium'])
+        rule3 = ctrl.Rule(self.population_size['large'] and self.generation['short'], self.prob_crossover['small'] and self.prob_mutasi['small'])
+        rule4 = ctrl.Rule(self.population_size['small'] and self.generation['medium'], self.prob_crossover['large'] and self.prob_mutasi['medium'])
+        rule5 = ctrl.Rule(self.population_size['medium'] and self.generation['medium'], self.prob_crossover['large'] and self.prob_mutasi['small'])
+        rule6 = ctrl.Rule(self.population_size['large'] and self.generation['medium'], self.prob_crossover['medium'] and self.prob_mutasi['very_small'])
+        rule7 = ctrl.Rule(self.population_size['small'] and self.generation['long'], self.prob_crossover['very_large'] and self.prob_mutasi['small'])
+        rule8 = ctrl.Rule(self.population_size['medium'] and self.generation['long'], self.prob_crossover['very_large'] and self.prob_mutasi['very_small'])
+        rule9 = ctrl.Rule(self.population_size['large'] and self.generation['long'], self.prob_crossover['large'] and self.prob_mutasi['very_small'])
+
+
 class Data:
     ROOMS = [
         ["FG 202", 35],
