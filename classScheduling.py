@@ -58,6 +58,11 @@ class FuzzyMamdani:
 
         self.ctrl_value.compute()
 
+    def result(self):
+        self.controlSystem()
+        print(self.ctrl_value.output["Prob Crossover"])
+        self.prob_crossover.view(sim=self.ctrl_value)
+
 
 class Data:
     ROOMS = [
