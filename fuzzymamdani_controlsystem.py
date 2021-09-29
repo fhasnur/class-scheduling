@@ -18,43 +18,24 @@ from skfuzzy import control as ctrl
 
 """Fuzzyfikasi
 
-Class untuk Domain
+Menentukan variabel dan semesta pembicaraan
 """
 
-class domain():
-    def __init__(self, lower_bound, upper_bound, fineness = 1) -> None:
-        self.label = ""
-        self.universe = np.linspace(lower_bound, upper_bound, fineness*1000)
-        self.probs = dict()
-
-    def view(self):
-        fig, ax = plt.subplots()
-        for key, items in self.probs.items():
-            ax.plot(self.universe, items)
-        plt.show()
-
-"""Menentukan variabel dan semesta pembicaraan"""
-
-population_size =ctrl.Antecedent(np.linspace(0, 1000), 'Population Size')
-generation = ctrl.Antecedent(np.linspace(0, 1000), 'Generation')
-prob_crossover = ctrl.Consequent(np.linspace(0.6, 0.9), 'Prob Crossover')
-prob_mutasi = ctrl.Consequent(np.linspace(0, 0.250), 'Prob Mutasi')
-
-# population_size = domain(0, 1000)
-# generation = domain(0, 1000)
-# prob_crossover = domain(0.6, 0.9)
-# prob_mutasi = domain(0, 0.25)
+generation = ctrl.Antecedent(np.arange(0, 1000, 1), 'generation')
+population = ctrl.Antecedent(np.arange(0, 1000, 1), 'population')
+prob_crossover = ctrl.Consequent(np.arange(0.6, 0.9,0.01),'prob_crossover')
+prob_mutasi = ctrl.Consequent(np.arange(0, 0.3, 0.01), 'prob_mutasi')
 
 """Fungsi keanggotaan jumlah populasi
 
 
 """
 
-population_size['small'] = fuzz.zmf(population_size.universe, 50, 250)
-population_size['medium'] = fuzz.gaussmf(population_size.universe, mean=275, sigma=80)
-population_size['large'] = fuzz.smf(population_size.universe, 350, 500)
+population['small'] = fuzz.zmf(population.universe, 50, 200)
+population['medium'] = fuzz.gaussmf(population.universe, mean=275, sigma=80)
+population['large'] = fuzz.smf(population.universe, 350, 500)
 
-population_size.view()
+populationsize.view()
 
 """Fungsi keanggotaan jumlah generasi"""
 
@@ -82,18 +63,48 @@ prob_mutasi['large'] = fuzz.smf(prob_mutasi.universe, 0.15, 0.225)
 
 prob_mutasi.view()
 
-rule1 = ctrl.Rule(population_size['small'] and generation['short'], prob_crossover['medium'] and prob_mutasi['large'])
-rule2 = ctrl.Rule(population_size['medium'] and generation['short'], prob_crossover['small'] and prob_mutasi['medium'])
-rule3 = ctrl.Rule(population_size['large'] and generation['short'], prob_crossover['small'] and prob_mutasi['small'])
-rule4 = ctrl.Rule(population_size['small'] and generation['medium'], prob_crossover['large'] and prob_mutasi['medium'])
-rule5 = ctrl.Rule(population_size['medium'] and generation['medium'], prob_crossover['large'] and prob_mutasi['small'])
-rule6 = ctrl.Rule(population_size['large'] and generation['medium'], prob_crossover['medium'] and prob_mutasi['very_small'])
-rule7 = ctrl.Rule(population_size['small'] and generation['long'], prob_crossover['very_large'] and prob_mutasi['small'])
-rule8 = ctrl.Rule(population_size['medium'] and generation['long'], prob_crossover['very_large'] and prob_mutasi['very_small'])
-rule9 = ctrl.Rule(population_size['large'] and generation['long'], prob_crossover['large'] and prob_mutasi['very_small'])
+crossover_rule1 = ctrl.Rule(antecedent=(population['small'] & generation['short']), consequent=prob_crossover['medium'])
+crossover_rule2 = ctrl.Rule(antecedent=(population['medium'] &  generation['short']), consequent=prob_crossover['small'])
+crossover_rule3 = ctrl.Rule(antecedent=(population['large'] & generation['short']), consequent=prob_crossover['small'])
+crossover_rule4 = ctrl.Rule(antecedent=(population['small'] & generation['medium']), consequent=prob_crossover['large'])
+crossover_rule5 = ctrl.Rule(antecedent=(population['medium'] & generation['medium']), consequent=prob_crossover['large'])
+crossover_rule6 = ctrl.Rule(antecedent=(population['large'] & generation['medium']), consequent=prob_crossover['medium'])
+crossover_rule7 = ctrl.Rule(antecedent=(population['small'] & generation['long']), consequent=prob_crossover['very_large'])
+crossover_rule8 = ctrl.Rule(antecedent=(population['medium'] & generation['long']), consequent=prob_crossover['very_large'])
+crossover_rule9 = ctrl.Rule(antecedent=(population['large'] & generation['long']), consequent=prob_crossover['large'])
 
-simulation = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
 
-simulation.view()
 
-input_simulation = ctrl.ControlSystemSimulation(simulation)
+mutasi_rule1 = ctrl.Rule(antecedent=(population['small'] & generation['short']), consequent=prob_mutasi['large'])
+mutasi_rule2 = ctrl.Rule(antecedent=(population['medium'] & generation['short']), consequent=prob_mutasi['medium'])
+mutasi_rule3 = ctrl.Rule(antecedent=(population['large'] & generation['short']), consequent=prob_mutasi['small'])
+mutasi_rule4 = ctrl.Rule(antecedent=(population['small'] & generation['medium']), consequent=prob_mutasi['medium'])
+mutasi_rule5 = ctrl.Rule(antecedent=(population['medium'] & generation['medium']), consequent=prob_mutasi['small'])
+mutasi_rule6 = ctrl.Rule(antecedent=(population['large'] & generation['medium']), consequent=prob_mutasi['very_small'])
+mutasi_rule7 = ctrl.Rule(antecedent=(population['small'] & generation['long']), consequent=prob_mutasi['small'])
+mutasi_rule8 = ctrl.Rule(antecedent=(population['medium'] & generation['long']), consequent=prob_mutasi['very_small'])
+mutasi_rule9 = ctrl.Rule(antecedent=(population['large'] & generation['long']), consequent=prob_mutasi['very_small'])
+
+crossover_value = ctrl.ControlSystem([crossover_rule1, crossover_rule2, crossover_rule3, crossover_rule4, crossover_rule5, crossover_rule6, crossover_rule7, crossover_rule8, crossover_rule9])
+
+mutasi_value = ctrl.ControlSystem([mutasi_rule1, mutasi_rule2, mutasi_rule3, mutasi_rule4, mutasi_rule5, mutasi_rule6, mutasi_rule7, mutasi_rule8, mutasi_rule9])
+
+crossover_simulation = ctrl.ControlSystemSimulation(crossover_value)
+mutasi_simulation = ctrl.ControlSystemSimulation(mutasi_value)
+
+crossover_simulation.input['population'] = 10
+crossover_simulation.input['generation'] = 100
+
+mutasi_simulation.input['population'] = 10
+mutasi_simulation.input['generation'] = 100
+
+crossover_simulation.compute()
+crossover = crossover_simulation.compute()
+crossover = crossover_simulation.output['prob_crossover']
+print ("Nilai crossover = %.2f" % crossover)
+
+mutasi_simulation.compute()
+mutasi = mutasi_simulation.compute()
+mutasi = mutasi_simulation.output['prob_mutasi']
+print ("Nilai mutasi = %.2f" % mutasi)
+
