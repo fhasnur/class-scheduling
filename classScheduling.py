@@ -12,10 +12,10 @@ MUTATION_RATE = 0.2
 
 class FuzzyMamdani:
     def __init__(self):
-        self.population = ctrl.Antecedent(np.linspace(0, 1000), "Population")
-        self.generation = ctrl.Antecedent(np.linspace(0, 1000), "Generation")
-        self.crossover = ctrl.Consequent(np.linspace(0.6, 0.9), "Crossover")
-        self.mutation = ctrl.Consequent(np.linspace(0, 0.250), "Mutation")
+        self.population = ctrl.Antecedent(np.arange(0, 1000, 1), "Population")
+        self.generation = ctrl.Antecedent(np.arange(0, 1000, 1), "Generation")
+        self.crossover = ctrl.Consequent(np.arange(0.6, 0.9, 0.01), "Crossover")
+        self.mutation = ctrl.Consequent(np.arange(0, 0.25, 0.01), "Mutation")
 
     def customMembership(self):
         self.population["small"] = fuzz.zmf(self.population.universe, 50, 250)
@@ -64,16 +64,23 @@ class FuzzyMamdani:
         self.crossover_rules()
         self.mutation_rules()
         crossover_value = ctrl.ControlSystem([self.crossover_rule1, self.crossover_rule2, self.crossover_rule3, self.crossover_rule4, self.crossover_rule5, self.crossover_rule6, self.crossover_rule7, self.crossover_rule8, self.crossover_rule9])
-        self.ctrl_value = ctrl.ControlSystemSimulation(value)
+        mutation_value = ctrl.ControlSystem([self.mutation_rule1, self.mutation_rule2, self.mutation_rule3, self.mutation_rule4, self.mutation_rule5, self.mutation_rule6, self.mutation_rule7, self.mutation_rule8, self.mutation_rule9])
+        self.crossover_simulation = ctrl.ControlSystemSimulation(crossover_value)
+        self.mutation_simulation = ctrl.ControlSystemSimulation(mutation_value)
 
-        self.ctrl_value.input['Population Size'] = 10
-        self.ctrl_value.input['Generation'] = 100
+        self.crossover_simulation.input['Population'] = 10
+        self.crossover_simulation.input['Generation'] = 100
 
-        self.ctrl_value.compute()
+        self.mutation_simulation.input['Population'] = 10
+        self.mutation_simulation.input['Generation'] = 100
+
+        self.crossover_simulation.compute()
+        self.mutation_simulation.compute()
 
     def result(self):
         self.controlSystem()
-        print(self.ctrl_value.output["Prob Crossover"])
+        print(self.crossover_simulation.output["Crossover"])
+        print(self.mutation_simulation.output["Mutation"])
         self.prob_crossover.view(sim=self.ctrl_value)
         
 
