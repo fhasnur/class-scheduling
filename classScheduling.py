@@ -93,10 +93,10 @@ class Data:
         ["FG 303B", 35],
         ["FG 305", 30],
         ["M. Teaching", 30],
-        ["MDR2", 15],
-        ["Workshop", 35],
         ["Lab", 40],
+        ["MDR2", 15],
         ["Aula FH", 45],
+        ["Workshop", 35],
     ]
     MEETING_TIMES = [
         ["J1", "07:30 - 08.10"],
@@ -119,44 +119,59 @@ class Data:
         ["H5", "Jum'at"],
     ]
     INSTRUCTORS = [
-        ["I1", "Prof Hamzah Upu"],
-        ["I2", "Syahrullah Asyari"],
-        ["I3", "Dr Ilham Minggi"],
-        ["I4", "Dr Ahmad Talib"],
-        ["I5", "Dr Rosidah"],
-        ["I6", "Ahmad Zaki"],
-        ["I7", "Dr Muhammad Darwis"],
-        ["I8", "Said Fachry Assagaf"],
-        ["I9", "Dr Hamda"],
-        ["I10", "Iwan Setiawan HR"],
-        ["I11", "Dr Rusli"],
-        ["I12", "Dr Alimuddin"],
-        ["I13", "Dr Bernard"],
-        ["I14", "Muh. Husnul Khuluq"],
-        ["I15", "Dr Asdar"],
-        ["I16", "Sabri Ph.D"],
-        ["I17", "Dr Hisyam Ihsan"],
-        ["I18", "Fajar Arwadi"],
-        ["I19", "Dr Rahmat Syam"],
-        ["I20", "Prof Abdul Rahman"],
-        ["I21", "Dr Djadir"],
-        ["I22", "Drs Muhammad Dinar"],
-        ["I23", "Prof Usman Mulbar"],
-        ["I24", "Syamsuddin Mas'ud"],
-        ["I25", "Prof Suradi"],
-        ["I26", "Dr Maya Sari Wahyuni"],
-        ["I25", "Prof Syafruddin Side"],
-        ["I27", "Irwan S.Si"],
-        ["I28", "Dr Kamaruddin Hasan"],
-        ["I29", "Dr Wahidah Sanusi"],
-        ["I30", "Sukarna, S.Pd"],
-        ["I31", "Nasrullah, S.Pd"],
-        ["I32", "Dr Muhammad Abdy"],
-        ["I33", "Dr Awi"],
-        ["I34", "Sulaiman, S.Si"],
-        ["I35", "Nurwati Djam'an"],
-        ["I36", "Prof Baso Intang"],
-        ["I37", "Prof Nurdin"],
+        ["D1", "Prof Dr. H. Hamzah Upu, M.Ed."],
+        ["D2", "Dr. Ilham Minggi, M.Si."],
+        ["D3", "Dr. Muhammad Darwis M, M.Pd."],
+        ["D4", "Drs. Hamda, DipKom, M.Pd."],
+        ["D5", "Dr. Rusli, M.Si."],
+        ["D6", "Dr. Alimuddin, M.Si."],
+        ["D7", "Dr. Asdar, S.Pd., M.Pd."],
+        ["D8", "Dr. Ahmad Talib, M.Si"],
+        ["D9", "Dr. Hisyam Ihsan, M.Si."],
+        ["D10", "Dr. H. Bernard, M.S."],
+        ["D11", "Sahid, S.Pd., M.Pd."],
+        ["D12", "Prof. Dr. Baso Intang Sappaile, M.Pd."],
+        ["D13", "Dr. H. Djadir, M.Pd."],
+        ["D14", "Drs. Muhammad Dinar, M.Pd."],
+        ["D15", "Prof. Dr. Ruslan, M.Pd."],
+        ["D16", "Prof. Dr. H. Suradi, M.S."],
+        ["D17", "Prof. Dr. Syafruddin Side, S.Si., M.Si."],
+        ["D18", "Dr. Muhammad Abdy, S.Si., M.Si."],
+        ["D19", "Prof. Dr. Abdul Rahman, M.Pd."],
+        ["D20", "Prof. Dr. H. Nurdin, M.Pd."],
+        ["D21", "H. Sukarna, S.Pd., M.Si."],
+        ["D22", "Sulaiman, S.Si., M.Kom, M.M."],
+        ["D23", "Dr. Wahidah Sanusi, S.Si., M.Si."],
+        ["D24", "Nasrullah, S.Pd., M.Pd."],
+        ["D25", "Dr. Rosidah, M.Si."],
+        ["D26", "Sabri, S.Pd., M.Sc., Ph.D."],
+        ["D27", "Sutamrin, S.Si., M.Pd."],
+        ["D28", "Dr. Awi, M.Si."],
+        ["D29", "Dr. H. Rahmat Syam, S.T. M.Kom."],
+        ["D30", "Ahmad Zaki, S.Si., M.Si."],
+        ["D31", "Sahlan Sidjara, S.Si., M.Si."],
+        ["D32", "Said Fachry Assagaf, S.Pd., M.Sc."],
+        ["D33", "Fajar Arwadi, S.Pd., M.Sc."],
+        ["D34", "Irwan, S.Si., M.Si."],
+        ["D35", "Prof. Dr. Usman Mulbar, M.Pd."],
+        ["D36", "Syahrullah Asyari, S.Pd., M.Pd."],
+        ["D37", "Dr. Maya Sari Wahyuni, S.T, M.Kom"],
+        ["D38", "Syamsuddin Mas'ud, S.Pd., M.Sc."],
+        ["D39", "Nurwati Djam'an, S.Pd., M.Pd., Ph.D."],
+        ["D40", "Muh. Husnul Khuluq, S.Pd., M.Sc."],
+        ["D41", "Iwan Setiawan HR., S.Pd., M.Pd."],
+        ["D42", "Fauziah Alimuddin, S.Pd., M.Pd."],
+        ["D43", "Hartati, S.Si., M.Si., Ph.D."],
+        ["D44", "Sulistiawati, S.Si.,M.Si.,M.T."],
+        ["D45", "Drs. Muhammad Yunus, M.Si."],
+        ["D46", "Rosmini Maru, S.Pd., M.Si.,Ph.D."],
+        ["D47", "Dr. S. Salmiah Sari, M.Pd."],
+        ["D48", "Vicran Zharvan, S.Si.,M.Si."],
+        ["D49", "Suriati Eka Putri, S.Si., M.Si."],
+        ["D50", "Diana Eka Pratiwi, S.Si., M.Si."],
+        ["D51", "Dr. Andi Faridah, S.Si., M.Si."],
+        ["D52", "Dr. Erman Syarif, S.Pd., M.Pd."],
+        ["D53", "Dosen MKU"],
     ]
 
     def __init__(self):
@@ -172,39 +187,54 @@ class Data:
             self._meetingDays.append(MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1]))
         for i in range(0, len(self.INSTRUCTORS)):
             self._instructors.append(Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1]))
-        course1 = Course("C1", "Landasan Matematika", [self._instructors[0], self._instructors[1]], 25)
-        course2 = Course("C2", "Kalkulus I", [self._instructors[0], self._instructors[1], self._instructors[2]],35)
-        course3 = Course("C3", "Aljabar Elementer", [self._instructors[0], self._instructors[1]], 25)
-        course4 = Course("C4", "Pendidikan Agama Islam", [self._instructors[2], self._instructors[3]], 30)
-        course5 = Course("C5", "Pendidikan Lingkungan Hidup", [self._instructors[3]], 35)
-        course6 = Course("C6", "Statistika Dasar", [self._instructors[0], self._instructors[2]], 45)
-        course7 = Course("C7", "Trigonometri", [self._instructors[1], self._instructors[3]], 30)
-        course8 = Course("C8", "Analisis Real", [self._instructors[5], self._instructors[6]], 35)
-        course9 = Course("C9", "Analisis Kompleks", [self._instructors[3], self._instructors[4]], 45)
-        course10 = Course("C10", "Teori Fuzzy", [self._instructors[6], self._instructors[9]], 35)
-        course11 = Course("C11", "Teori Bilangan", [self._instructors[6], self._instructors[9]], 35)
-        course12 = Course("C12", "Landasan Keguruan", [self._instructors[8], self._instructors[9]], 30)
-        course13 = Course("C13", "Geometri Analitik", [self._instructors[8], self._instructors[9]], 40)
-        course14 = Course("C14", "Aljabar Linear", [self._instructors[8], self._instructors[9]], 25)
-        course15 = Course("C15","Kalkulus Differensial", [self._instructors[8], self._instructors[9]], 40)
-        course16 = Course("C16","Masalah Syarat Batas", [self._instructors[2], self._instructors[7]], 35)
-        course17 = Course("C17","Persamaan Differensial Biasa", [self._instructors[4], self._instructors[7]], 35)
-        course18 = Course("C18","Persamaan Differensial Parsial", [self._instructors[3], self._instructors[8]], 40)
-        course19 = Course("C19","Teori Graf", [self._instructors[5], self._instructors[9]], 40)
-        course20 = Course("C20","Struktur Aljabar", [self._instructors[4], self._instructors[9]], 40)
-        self._courses = [course1, course2, course3, course4, course5, course6, course7, course8, course9, course10, course11, course12, course13, course14, course15, course16, course17, course18, course19, course20]
+        courseB1 = Course("CB1", "Kalkulus Diferensial", [self._instructors[25], self._instructors[35]], 25)
+        courseB2 = Course("CB2", "Fisika Dasar", [self._instructors[46], self._instructors[47]],35)
+        courseB3 = Course("CB3", "Kimia Dasar", [self._instructors[48], self._instructors[49]], 25)
+        courseB4 = Course("CB4", "Biologi Dasar", [self._instructors[50]], 30)
+        courseB5 = Course("CB5", "Pendidikan Lingkungan Hidup", [self._instructors[13], self._instructors[51]], 35)
+        courseB6 = Course("CB6", "Pendidikan Agama Islam", [self._instructors[52]], 45)
+        courseB7 = Course("CB7", "Statistika Dasar", [self._instructors[20], self._instructors[33]], 30)
+        courseB8 = Course("CB8", "Landasan Matematika", [self._instructors[3], self._instructors[32]], 35)
+        courseB9 = Course("CB9", "Aljabar Elementer", [self._instructors[3], self._instructors[30]], 45)
+        courseB10 = Course("CB10", "Kalkulus Peubah Banyak", [self._instructors[3], self._instructors[32]], 35)
+        courseB11 = Course("CB11", "Aljabar Linear Lanjut", [self._instructors[6], self._instructors[9]], 35)
+        courseB12 = Course("CB12", "Teori Peluang", [self._instructors[22]], 30)
+        courseB13 = Course("CB13", "Geometri Analitik Datar", [self._instructors[2], self._instructors[23]], 30)
+        courseB14 = Course("CB14", "Teori Bilangan", [self._instructors[34], self._instructors[33]], 30)
+        courseB15 = Course("CB15", "Pemrograman Lanjutan", [self._instructors[36]], 40)
+        courseB16 = Course("CB16", "Trigonometri", [self._instructors[12], self._instructors[40]], 25)
+        courseB17 = Course("CB17","Matematika Keuangan", [self._instructors[8], self._instructors[29]], 40)
+        courseB18 = Course("CB18","Simulasi Komputer", [self._instructors[36]], 40)
+        courseB19 = Course("CB19","Statistika Pengendalian Mutu", [self._instructors[24], self._instructors[33]], 40)
+        courseB20 = Course("CB20","Pemrograman Web", [self._instructors[28], self._instructors[26]], 40)
+        courseB21 = Course("CB21","Program Linear", [self._instructors[20], self._instructors[26]], 40)
+        courseB22 = Course("CB22","Analisis Real II", [self._instructors[1], self._instructors[37]], 40)
+        courseB23 = Course("CB23","Struktur Aljabar II", [self._instructors[15], self._instructors[30]], 40)
+        courseB24 = Course("CB24","Metodologi Penelitian", [self._instructors[8], self._instructors[17]], 40)
+        courseB25 = Course("CB25","Pemodelan Matematika", [self._instructors[16]], 40)
+        courseB26 = Course("CB26","Komputasi Matematika", [self._instructors[36], self._instructors[21]], 40)
+        courseB27 = Course("CB27","Kapita Selekta", [self._instructors[16], self._instructors[22], self._instructors[20], self._instructors[28]], 40)
+        courseB28 = Course("CB28","Matematika Aktuaria", [self._instructors[8], self._instructors[21]], 40)
+        courseB29 = Course("CB29","Statistika Multivariat", [self._instructors[22], self._instructors[33]], 40)
+        courseB30 = Course("CB30","Sistem Dinamik", [self._instructors[16]], 40)
+        courseB31 = Course("CB31","Teori Modul", [self._instructors[17], self._instructors[30]], 40)
+        self._courses = [
+            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
+            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
+            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
+        ]
 
         A1_S1 = Department("A1 S1", [course1, course3, course5, course12])
-        A2_S1 = Department("A2 S1", [course2, course10, course11])
-        B_S1 = Department("B S1", [course6, course7, course8, course18])
-        C_S1 = Department("C S1", [course6, course7, course8, course20])
         A1_S3 = Department("A1 S3", [course4, course5, course6, course13])
-        A2_S3 = Department("A2 S3", [course2, course10, course11, course18])
-        B_S3 = Department("B S3", [course6, course7, course9, course16, course19])
-        C_S3 = Department("C S3", [course6, course7, course9, course19])
         A1_S5 = Department("A1 S5", [course9, course10, course11, course15])
-        A2_S5 = Department("A2 S5", [course8, course10, course11, course17])
-        B_S5 = Department("B S5", [course7, course8, course9, course14, course20])
+        A2_S1 = Department("A2 S1", [course2, course10, course11])
+        A2_S3 = Department("A2 S3", [course2, course10, course11])
+        A2_S5 = Department("A2 S5", [course8, course10, course11])
+        B_S1 = Department("B S1", [course6, course7, course8])
+        B_S3 = Department("B S3", [course6, course7, course9])
+        B_S5 = Department("B S5", [course7, course8, course9, course14])
+        C_S1 = Department("C S1", [course6, course7, course8])
+        C_S3 = Department("C S3", [course6, course7, course9])
         C_S5 = Department("C S5", [course7, course8, course9, course14])
         self._depts = [A1_S1, A2_S1, B_S1, C_S1, A1_S3, A2_S3, B_S3, C_S3, A1_S5, A2_S5, B_S5, C_S5]
         self._numberOfClasses = 0
