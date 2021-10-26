@@ -119,58 +119,59 @@ class Data:
         ["H5", "Jum'at"],
     ]
     INSTRUCTORS = [
-        ["D1", "Prof Dr. H. Hamzah Upu, M.Ed."],
-        ["D2", "Dr. Ilham Minggi, M.Si."],
-        ["D3", "Dr. Muhammad Darwis M, M.Pd."],
-        ["D4", "Drs. Hamda, DipKom, M.Pd."],
-        ["D5", "Dr. Rusli, M.Si."],
-        ["D6", "Dr. Alimuddin, M.Si."],
-        ["D7", "Dr. Asdar, S.Pd., M.Pd."],
-        ["D8", "Dr. Ahmad Talib, M.Si"],
-        ["D9", "Dr. Hisyam Ihsan, M.Si."],
-        ["D10", "Dr. H. Bernard, M.S."],
-        ["D11", "Sahid, S.Pd., M.Pd."],
-        ["D12", "Prof. Dr. Baso Intang Sappaile, M.Pd."],
-        ["D13", "Dr. H. Djadir, M.Pd."],
-        ["D14", "Drs. Muhammad Dinar, M.Pd."],
-        ["D15", "Prof. Dr. Ruslan, M.Pd."],
-        ["D16", "Prof. Dr. H. Suradi, M.S."],
-        ["D17", "Prof. Dr. Syafruddin Side, S.Si., M.Si."],
-        ["D18", "Dr. Muhammad Abdy, S.Si., M.Si."],
-        ["D19", "Prof. Dr. Abdul Rahman, M.Pd."],
-        ["D20", "Prof. Dr. H. Nurdin, M.Pd."],
-        ["D21", "H. Sukarna, S.Pd., M.Si."],
-        ["D22", "Sulaiman, S.Si., M.Kom, M.M."],
-        ["D23", "Dr. Wahidah Sanusi, S.Si., M.Si."],
-        ["D24", "Nasrullah, S.Pd., M.Pd."],
-        ["D25", "Dr. Rosidah, M.Si."],
-        ["D26", "Sabri, S.Pd., M.Sc., Ph.D."],
-        ["D27", "Sutamrin, S.Si., M.Pd."],
-        ["D28", "Dr. Awi, M.Si."],
-        ["D29", "Dr. H. Rahmat Syam, S.T. M.Kom."],
-        ["D30", "Ahmad Zaki, S.Si., M.Si."],
-        ["D31", "Sahlan Sidjara, S.Si., M.Si."],
-        ["D32", "Said Fachry Assagaf, S.Pd., M.Sc."],
-        ["D33", "Fajar Arwadi, S.Pd., M.Sc."],
-        ["D34", "Irwan, S.Si., M.Si."],
-        ["D35", "Prof. Dr. Usman Mulbar, M.Pd."],
-        ["D36", "Syahrullah Asyari, S.Pd., M.Pd."],
-        ["D37", "Dr. Maya Sari Wahyuni, S.T, M.Kom"],
-        ["D38", "Syamsuddin Mas'ud, S.Pd., M.Sc."],
-        ["D39", "Nurwati Djam'an, S.Pd., M.Pd., Ph.D."],
-        ["D40", "Muh. Husnul Khuluq, S.Pd., M.Sc."],
-        ["D41", "Iwan Setiawan HR., S.Pd., M.Pd."],
-        ["D42", "Fauziah Alimuddin, S.Pd., M.Pd."],
-        ["D43", "Hartati, S.Si., M.Si., Ph.D."],
-        ["D44", "Sulistiawati, S.Si.,M.Si.,M.T."],
-        ["D45", "Drs. Muhammad Yunus, M.Si."],
-        ["D46", "Rosmini Maru, S.Pd., M.Si.,Ph.D."],
-        ["D47", "Dr. S. Salmiah Sari, M.Pd."],
-        ["D48", "Vicran Zharvan, S.Si.,M.Si."],
-        ["D49", "Suriati Eka Putri, S.Si., M.Si."],
-        ["D50", "Diana Eka Pratiwi, S.Si., M.Si."],
-        ["D51", "Dr. Andi Faridah, S.Si., M.Si."],
-        ["D52", "Dr. Erman Syarif, S.Pd., M.Pd."],
+        ["D0", "Prof Dr. H. Hamzah Upu, M.Ed."],
+        ["D1", "Dr. Ilham Minggi, M.Si."],
+        ["D2", "Dr. Muhammad Darwis M, M.Pd."],
+        ["D3", "Drs. Hamda, DipKom, M.Pd."],
+        ["D4", "Dr. Rusli, M.Si."],
+        ["D5", "Dr. Alimuddin, M.Si."],
+        ["D6", "Dr. Asdar, S.Pd., M.Pd."],
+        ["D7", "Dr. Ahmad Talib, M.Si"],
+        ["D8", "Dr. Hisyam Ihsan, M.Si."],
+        ["D9", "Dr. H. Bernard, M.S."],
+        ["D10", "Sahid, S.Pd., M.Pd."],
+        ["D11", "Prof. Dr. Baso Intang Sappaile, M.Pd."],
+        ["D12", "Dr. H. Djadir, M.Pd."],
+        ["D13", "Drs. Muhammad Dinar, M.Pd."],
+        ["D14", "Prof. Dr. Ruslan, M.Pd."],
+        ["D15", "Prof. Dr. H. Suradi, M.S."],
+        ["D16", "Prof. Dr. Syafruddin Side, S.Si., M.Si."],
+        ["D17", "Dr. Muhammad Abdy, S.Si., M.Si."],
+        ["D18", "Prof. Dr. Abdul Rahman, M.Pd."],
+        ["D19", "Prof. Dr. H. Nurdin, M.Pd."],
+        ["D20", "H. Sukarna, S.Pd., M.Si."],
+        ["D21", "Sulaiman, S.Si., M.Kom, M.M."],
+        ["D22", "Dr. Wahidah Sanusi, S.Si., M.Si."],
+        ["D23", "Nasrullah, S.Pd., M.Pd."],
+        ["D24", "Dr. Rosidah, M.Si."],
+        ["D25", "Sabri, S.Pd., M.Sc., Ph.D."],
+        ["D26", "Sutamrin, S.Si., M.Pd."],
+        ["D27", "Dr. Awi, M.Si."],
+        ["D28", "Dr. H. Rahmat Syam, S.T. M.Kom."],
+        ["D29", "Ahmad Zaki, S.Si., M.Si."],
+        ["D30", "Sahlan Sidjara, S.Si., M.Si."],
+        ["D31", "Said Fachry Assagaf, S.Pd., M.Sc."],
+        ["D32", "Fajar Arwadi, S.Pd., M.Sc."],
+        ["D33", "Irwan, S.Si., M.Si."],
+        ["D34", "Prof. Dr. Usman Mulbar, M.Pd."],
+        ["D35", "Syahrullah Asyari, S.Pd., M.Pd."],
+        ["D36", "Dr. Maya Sari Wahyuni, S.T, M.Kom"],
+        ["D37", "Syamsuddin Mas'ud, S.Pd., M.Sc."],
+        ["D38", "Nurwati Djam'an, S.Pd., M.Pd., Ph.D."],
+        ["D39", "Muh. Husnul Khuluq, S.Pd., M.Sc."],
+        ["D40", "Iwan Setiawan HR., S.Pd., M.Pd."],
+        ["D41", "Fauziah Alimuddin, S.Pd., M.Pd."],
+        ["D42", "Hartati, S.Si., M.Si., Ph.D."],
+        ["D43", "Sulistiawati, S.Si.,M.Si.,M.T."],
+        ["D44", "Drs. Muhammad Yunus, M.Si."],
+        ["D45", "Rosmini Maru, S.Pd., M.Si.,Ph.D."],
+        ["D46", "Dr. S. Salmiah Sari, M.Pd."],
+        ["D47", "Vicran Zharvan, S.Si.,M.Si."],
+        ["D48", "Suriati Eka Putri, S.Si., M.Si."],
+        ["D49", "Diana Eka Pratiwi, S.Si., M.Si."],
+        ["D50", "Dr. Andi Faridah, S.Si., M.Si."],
+        ["D51", "Dr. Erman Syarif, S.Pd., M.Pd."],
+        ["D52", "Iwan Dini, S.Si., M.Si."],
         ["D53", "Dosen MKU"],
     ]
 
@@ -187,6 +188,44 @@ class Data:
             self._meetingDays.append(MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1]))
         for i in range(0, len(self.INSTRUCTORS)):
             self._instructors.append(Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1]))
+        # Course A1 Semester 1 
+        courseA1_S1_1 = Course("courseA1_S1_1", "Bahasa Inggris Matematika", [self._instructors[0], self._instructors[35]], 25)
+        courseA1_S1_2 = Course("courseA1_S1_2", "Landasan Matematika", [self._instructors[1], self._instructors[7]], 25)
+        courseA1_S1_3 = Course("courseA1_S1_3", "Statistika Dasar", [self._instructors[2], self._instructors[29]], 25)
+        courseA1_S1_4 = Course("courseA1_S1_4", "Kalkulus Diferensial", [self._instructors[3], self._instructors[35]], 25)
+        courseA1_S1_5 = Course("courseA1_S1_5", "Aljabar Elementer", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S1_6 = Course("courseA1_S1_6", "Biologi Dasar", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S1_7 = Course("courseA1_S1_7", "Fisika Dasar", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S1_8 = Course("courseA1_S1_8", "Kimia Dasar", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S1_9 = Course("courseA1_S1_9", "Pendidikan Lingkungan Hidup", [self._instructors[25], self._instructors[35]], 25)
+        # Course A1 Semester 3
+        courseA1_S3_1 = Course("courseA1_S3_1", "Pengantar Pendidikan Matematika", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_2 = Course("courseA1_S3_2", "Strategi Pembelajaran Matematika", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_3 = Course("courseA1_S3_3", "Algoritma dan Pemrograman Komputer", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_4 = Course("courseA1_S3_4", "Trigonometri", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_5 = Course("courseA1_S3_5", "Matematika Sekolah Dasar dan Pembelajarannya", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_6 = Course("courseA1_S3_6", "Geometri Analitik Datar", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_7 = Course("courseA1_S3_7", "Filsafat Pendidikan Matematika", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_8 = Course("courseA1_S3_8", "Teori Peluang", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_9 = Course("courseA1_S3_9", "Aljabar Linear Lanjut", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_10 = Course("courseA1_S3_10", "Pengantar Teori Fuzzy", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_11 = Course("courseA1_S3_11", "Sejarah Matematika", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S3_12 = Course("courseA1_S3_12", "Analisis Kompleks", [self._instructors[25], self._instructors[35]], 25)
+        # Course A1 Semester 5
+        courseA1_S5_1 = Course("courseA1_S5_1", "Landasan Keguruan Lanjut", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_2 = Course("courseA1_S5_2", "Pengantar Analisis Real", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_3 = Course("courseA1_S5_3", "Struktur Aljabar", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_4 = Course("courseA1_S5_4", "Statistika Terapan Pendidikan", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_5 = Course("courseA1_S5_5", "Metodologi Penelitian Kuantitatif", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_6 = Course("courseA1_S5_6", "Media Pembelajaran Manipulatif", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_7 = Course("courseA1_S5_7", "Program Linear", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_8 = Course("courseA1_S5_8", "Belajar dan Pembelajaran", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_9 = Course("courseA1_S5_9", "Teori Graf", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_10 = Course("courseA1_S5_10", "Pemodelan Matematika", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_11 = Course("courseA1_S5_11", " Pemrograman Web", [self._instructors[25], self._instructors[35]], 25)
+        courseA1_S5_12 = Course("courseA1_S5_12", "Masalah Syarat Batas", [self._instructors[25], self._instructors[35]], 25)
+
+        # Course B Semester 1 
         courseB1 = Course("CB1", "Kalkulus Diferensial", [self._instructors[25], self._instructors[35]], 25)
         courseB2 = Course("CB2", "Fisika Dasar", [self._instructors[46], self._instructors[47]],35)
         courseB3 = Course("CB3", "Kimia Dasar", [self._instructors[48], self._instructors[49]], 25)
