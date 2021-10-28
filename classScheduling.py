@@ -193,6 +193,7 @@ class Data:
             self._meetingDays.append(MeetingDay(self.MEETING_DAYS[i][0], self.MEETING_DAYS[i][1]))
         for i in range(0, len(self.INSTRUCTORS)):
             self._instructors.append(Instructor(self.INSTRUCTORS[i][0], self.INSTRUCTORS[i][1]))
+        # ===================================
         # Course A1 Semester 1 
         courseA1_S1_1 = Course("courseA1_S1_1", "Bahasa Inggris Matematika", [self._instructors[0], self._instructors[35]], 25)
         courseA1_S1_2 = Course("courseA1_S1_2", "Landasan Matematika", [self._instructors[1], self._instructors[7]], 25)
@@ -229,7 +230,87 @@ class Data:
         courseA1_S5_10 = Course("courseA1_S5_10", "Pemodelan Matematika", [self._instructors[16]], 25)
         courseA1_S5_11 = Course("courseA1_S5_11", " Pemrograman Web", [self._instructors[36], self._instructors[26]], 25)
         courseA1_S5_12 = Course("courseA1_S5_12", "Masalah Syarat Batas", [self._instructors[7], self._instructors[37]], 25)
+        courseA1_S5_13 = Course("courseA1_S5_13", "Microteaching", [self._instructors[6], self._instructors[39]], 25)
 
+        # ===================================
+        # Course A2 Semester 1 
+        courseA2_S1_1 = Course("courseA2_S1_1", "Bahasa Inggris Matematika", [self._instructors[0], self._instructors[25]], 25)
+        courseA2_S1_2 = Course("courseA2_S1_2", "Landasan Matematika", [self._instructors[1], self._instructors[7]], 25)
+        courseA2_S1_3 = Course("courseA2_S1_3", "Statistika Dasar", [self._instructors[24], self._instructors[29]], 25)
+        courseA2_S1_4 = Course("courseA2_S1_4", "Kalkulus Diferensial", [self._instructors[4], self._instructors[31]], 25)
+        courseA2_S1_5 = Course("courseA2_S1_5", "Aljabar Elementer", [self._instructors[5], self._instructors[24]], 25)
+        courseA2_S1_6 = Course("courseA2_S1_6", "Biologi Dasar", [self._instructors[53]], 25)
+        courseA2_S1_7 = Course("courseA2_S1_7", "Fisika Dasar", [self._instructors[43]], 25)
+        courseA2_S1_8 = Course("courseA2_S1_8", "Kimia Dasar", [self._instructors[44], self._instructors[52]], 25)
+        courseA2_S1_9 = Course("courseA2_S1_9", "Pendidikan Lingkungan Hidup", [self._instructors[45], self._instructors[9]], 25)
+        # Course A2 Semester 3
+        courseA2_S3_1 = Course("courseA2_S3_1", "Pengantar Pendidikan Matematika", [self._instructors[9], self._instructors[32]], 25)
+        courseA2_S3_2 = Course("courseA2_S3_2", "Strategi Pembelajaran Matematika", [self._instructors[15], self._instructors[35]], 25)
+        courseA2_S3_3 = Course("courseA2_S3_3", "Algoritma dan Pemrograman Komputer", [self._instructors[28]], 25)
+        courseA2_S3_4 = Course("courseA2_S3_4", "Trigonometri", [self._instructors[6], self._instructors[31]], 25)
+        courseA2_S3_5 = Course("courseA2_S3_5", "Matematika Sekolah Dasar dan Pembelajarannya", [self._instructors[18], self._instructors[39]], 25)
+        courseA2_S3_6 = Course("courseA2_S3_6", "Geometri Analitik Datar", [self._instructors[13]], 25)
+        courseA2_S3_7 = Course("courseA2_S3_7", "Filsafat Pendidikan Matematika", [self._instructors[2], self._instructors[35]], 25)
+        courseA2_S3_8 = Course("courseA2_S3_8", "Teori Peluang", [self._instructors[22], self._instructors[20]], 25)
+        courseA2_S3_9 = Course("courseA2_S3_9", "Aljabar Linear Lanjut", [self._instructors[23], self._instructors[41]], 25)
+        courseA2_S3_10 = Course("courseA2_S3_10", "Pengantar Teori Fuzzy", [self._instructors[27], self._instructors[17]], 25)
+        courseA2_S3_11 = Course("courseA2_S3_11", "Sejarah Matematika", [self._instructors[34], self._instructors[35]], 25)
+        courseA2_S3_12 = Course("courseA2_S3_12", "Analisis Kompleks", [self._instructors[18], self._instructors[37]], 25)
+        # Course A2 Semester 5
+        courseA2_S5_1 = Course("courseA2_S5_1", "Landasan Keguruan Lanjut", [self._instructors[27]], 25)
+        courseA2_S5_2 = Course("courseA2_S5_2", "Pengantar Analisis Real", [self._instructors[2], self._instructors[1]], 25)
+        courseA2_S5_3 = Course("courseA2_S5_3", "Struktur Aljabar", [self._instructors[15], self._instructors[30]], 25)
+        courseA2_S5_4 = Course("courseA2_S5_4", "Statistika Terapan Pendidikan", [self._instructors[8], self._instructors[29]], 25)
+        courseA2_S5_5 = Course("courseA2_S5_5", "Metodologi Penelitian Kuantitatif", [self._instructors[14], self._instructors[11]], 25)
+        courseA2_S5_6 = Course("courseA2_S5_6", "Media Pembelajaran Manipulatif", [self._instructors[12], self._instructors[10]], 25)
+        courseA2_S5_7 = Course("courseA2_S5_7", "Program Linear", [self._instructors[14], self._instructors[10]], 25)
+        courseA2_S5_8 = Course("courseA2_S5_8", "Belajar dan Pembelajaran", [self._instructors[4], self._instructors[38]], 25)
+        courseA2_S5_9 = Course("courseA2_S5_9", "Teori Graf", [self._instructors[19], self._instructors[40]], 25)
+        courseA2_S5_10 = Course("courseA2_S5_10", "Pemodelan Matematika", [self._instructors[16]], 25)
+        courseA2_S5_11 = Course("courseA2_S5_11", " Pemrograman Web", [self._instructors[28], self._instructors[36]], 25)
+        courseA2_S5_12 = Course("courseA2_S5_12", "Masalah Syarat Batas", [self._instructors[7], self._instructors[37]], 25)
+        courseA2_S5_13 = Course("courseA2_S5_13", "Microteaching", [self._instructors[6], self._instructors[39]], 25)
+
+        # ===================================
+        # Course C Semester 1 
+        courseC_S1_1 = Course("courseC_S1_1", "English for Mathematics", [self._instructors[0], self._instructors[25]], 25)
+        courseC_S1_2 = Course("courseC_S1_2", " Fundamentals of Mathematics", [self._instructors[7], self._instructors[39]], 25)
+        courseC_S1_3 = Course("courseC_S1_3", "Elementary Statistics", [self._instructors[8], self._instructors[29]], 25)
+        courseC_S1_4 = Course("courseC_S1_4", "Differensial Calculus", [self._instructors[1], self._instructors[25]], 25)
+        courseC_S1_5 = Course("courseC_S1_5", "Elementary Algebra", [self._instructors[5], self._instructors[41]], 25)
+        courseC_S1_6 = Course("courseC_S1_6", "Biology", [self._instructors[55], self._instructors[56]], 25)
+        courseC_S1_7 = Course("courseC_S1_7", "Physics", [self._instructors[43]], 25)
+        courseC_S1_8 = Course("courseC_S1_8", "Chemistry", [self._instructors[48], self._instructors[49]], 25)
+        courseC_S1_9 = Course("courseC_S1_9", "Environmental Education", [self._instructors[13], self._instructors[57]], 25)
+        # Course C Semester 3
+        courseC_S3_1 = Course("courseC_S3_1", "Introduction to Mathematics Education", [self._instructors[23], self._instructors[32]], 25)
+        courseC_S3_2 = Course("courseC_S3_2", "Mathematics Learning Strategy", [self._instructors[19], self._instructors[39]], 25)
+        courseC_S3_3 = Course("courseC_S3_3", "Algorithm and Computer Programming", [self._instructors[36], self._instructors[21]], 25)
+        courseC_S3_4 = Course("courseC_S3_4", "Trigonometry", [self._instructors[6], self._instructors[25]], 25)
+        courseC_S3_5 = Course("courseC_S3_5", "Primary School Mathematics and Learning", [self._instructors[18], self._instructors[38]], 25)
+        courseC_S3_6 = Course("courseC_S3_6", " Plane Analytical Geometry", [self._instructors[13], self._instructors[32]], 25)
+        courseC_S3_7 = Course("courseC_S3_7", "Philosopy of Mathematics Education", [self._instructors[0], self._instructors[35]], 25)
+        courseC_S3_8 = Course("courseC_S3_8", "Probability Theory", [self._instructors[20], self._instructors[33]], 25)
+        courseC_S3_9 = Course("courseC_S3_9", "Intermediate Linear Algebra", [self._instructors[5], self._instructors[23]], 25)
+        courseC_S3_10 = Course("courseC_S3_10", "Introduction to Fuzzy Theory", [self._instructors[19], self._instructors[17]], 25)
+        courseC_S3_11 = Course("courseC_S3_11", "The History of Mathematics", [self._instructors[34], self._instructors[39]], 25)
+        # Course C Semester 5
+        courseC_S5_1 = Course("courseC_S5_1", "Fundamentals of Teaching II", [self._instructors[23]], 25)
+        courseC_S5_2 = Course("courseC_S5_2", "Introduction to Real Analysis", [self._instructors[2], self._instructors[30]], 25)
+        courseC_S5_3 = Course("courseC_S5_3", "Introduction to Modern Algebra", [self._instructors[4], self._instructors[38]], 25)
+        courseC_S5_4 = Course("courseC_S5_4", "Applied Statistics in Education", [self._instructors[11], self._instructors[33]], 25)
+        courseC_S5_5 = Course("courseC_S5_5", "Quantitative Research Methodology in Education", [self._instructors[11], self._instructors[31]], 25)
+        courseC_S5_6 = Course("courseC_S5_6", "Manipulative Learning Media", [self._instructors[12], self._instructors[3]], 25)
+        courseC_S5_7 = Course("courseC_S5_7", "Linear Programming", [self._instructors[14], self._instructors[10]], 25)
+        courseC_S5_8 = Course("courseC_S5_8", "Teaching and Learning", [self._instructors[4], self._instructors[38]], 25)
+        courseC_S5_9 = Course("courseC_S5_9", "Graph Theory", [self._instructors[19], self._instructors[37]], 25)
+        courseC_S5_10 = Course("courseC_S5_10", "Mathematical Modeling", [self._instructors[16]], 25)
+        courseC_S5_11 = Course("courseC_S5_11", "Web Programming", [self._instructors[28], self._instructors[26]], 25)
+        courseC_S5_12 = Course("courseC_S5_12", "Boundary Value Problem", [self._instructors[7], self._instructors[37]], 25)
+        courseC_S5_13 = Course("courseC_S5_13", "Microteaching", [self._instructors[6], self._instructors[39]], 25)
+        courseC_S5_14 = Course("courseC_S5_14", "Analitical Geometry (1)", [self._instructors[13], self._instructors[32]], 25)
+
+        # ===================================
         # Course B Semester 1 
         courseB_S1_1 = Course("courseB_S1_1", "Kalkulus Diferensial", [self._instructors[25], self._instructors[35]], 25)
         courseB_S1_2 = Course("courseB_S1_2", "Fisika Dasar", [self._instructors[46], self._instructors[47]],35)
@@ -265,24 +346,33 @@ class Data:
         courseB_S5_10 = Course("courseB_S5_10","Sistem Dinamik", [self._instructors[16]], 40)
         courseB_S5_11 = Course("courseB_S5_11","Teori Modul", [self._instructors[17], self._instructors[30]], 40)
         self._courses = [
-            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
-            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
-            courseB1, courseB2, courseB3, courseB4, courseB5, courseB6, courseB7, courseB8, courseB9, courseB10, courseB11, courseB12, courseB13, courseB14, courseB15, courseB16, courseB17, courseB18, courseB19, courseB20, courseB21, courseB22, courseB23, courseB24, courseB25, courseB26, courseB27, courseB28, courseB29, courseB30,courseB31,
+            courseA1_S1_1, courseA1_S1_2, courseA1_S1_3, courseA1_S1_4, courseA1_S1_5, courseA1_S1_6, courseA1_S1_7, courseA1_S1_8, courseA1_S1_9,
+            courseA1_S3_1, courseA1_S3_2, courseA1_S3_3, courseA1_S3_4, courseA1_S3_5, courseA1_S3_6, courseA1_S3_7, courseA1_S3_8, courseA1_S3_9, courseA1_S3_10, courseA1_S3_11, courseA1_S3_12,
+            courseA1_S5_1, courseA1_S5_2, courseA1_S5_3, courseA1_S5_4, courseA1_S5_5, courseA1_S5_6, courseA1_S5_7, courseA1_S5_8, courseA1_S5_9, courseA1_S5_10, courseA1_S5_11, courseA1_S5_12, courseA1_S5_13,
+            courseA2_S1_1, courseA2_S1_2, courseA2_S1_3, courseA2_S1_4, courseA2_S1_5, courseA2_S1_6, courseA2_S1_7, courseA2_S1_8, courseA2_S1_9,
+            courseA2_S3_1, courseA2_S3_2, courseA2_S3_3, courseA2_S3_4, courseA2_S3_5, courseA2_S3_6, courseA2_S3_7, courseA2_S3_8, courseA2_S3_9, courseA2_S3_10, courseA2_S3_11, courseA2_S3_12,
+            courseA2_S5_1, courseA2_S5_2, courseA2_S5_3, courseA2_S5_4, courseA2_S5_5, courseA2_S5_6, courseA2_S5_7, courseA2_S5_8, courseA2_S5_9, courseA2_S5_10, courseA2_S5_11, courseA2_S5_12, courseA2_S5_13,
+            courseC_S1_1, courseC_S1_2, courseC_S1_3, courseC_S1_4, courseC_S1_5, courseC_S1_6, courseC_S1_7, courseC_S1_8, courseC_S1_9,
+            courseC_S3_1, courseC_S3_2, courseC_S3_3, courseC_S3_4, courseC_S3_5, courseC_S3_6, courseC_S3_7, courseC_S3_8, courseC_S3_9, courseC_S3_10, courseC_S3_11,
+            courseC_S5_1, courseC_S5_2, courseC_S5_3, courseC_S5_4, courseC_S5_5, courseC_S5_6, courseC_S5_7, courseC_S5_8, courseC_S5_9, courseC_S5_10, courseC_S5_11, courseC_S5_12, courseC_S5_13, courseC_S5_14,
+            courseB_S1_1, courseB_S1_2, courseB_S1_3, courseB_S1_4, courseB_S1_5, courseB_S1_6, courseB_S1_7, courseB_S1_8, courseB_S1_9,
+            courseB_S3_1, courseB_S3_2, courseB_S3_3, courseB_S3_4, courseB_S3_5, courseB_S3_6, courseB_S3_7, courseB_S3_8, courseB_S3_9, courseB_S3_10, courseB_S3_11,
+            courseB_S5_1, courseB_S5_2, courseB_S5_3, courseB_S5_4, courseB_S5_5, courseB_S5_6, courseB_S5_7, courseB_S5_8, courseB_S5_9, courseB_S5_10, courseB_S5_11
         ]
 
-        A1_S1 = Department("A1 S1", [course1, course3, course5, course12])
-        A1_S3 = Department("A1 S3", [course4, course5, course6, course13])
-        A1_S5 = Department("A1 S5", [course9, course10, course11, course15])
-        A2_S1 = Department("A2 S1", [course2, course10, course11])
-        A2_S3 = Department("A2 S3", [course2, course10, course11])
-        A2_S5 = Department("A2 S5", [course8, course10, course11])
-        B_S1 = Department("B S1", [course6, course7, course8])
-        B_S3 = Department("B S3", [course6, course7, course9])
-        B_S5 = Department("B S5", [course7, course8, course9, course14])
-        C_S1 = Department("C S1", [course6, course7, course8])
-        C_S3 = Department("C S3", [course6, course7, course9])
-        C_S5 = Department("C S5", [course7, course8, course9, course14])
-        self._depts = [A1_S1, A2_S1, B_S1, C_S1, A1_S3, A2_S3, B_S3, C_S3, A1_S5, A2_S5, B_S5, C_S5]
+        A1_S1 = Department("A1 S1", [courseA1_S1_1, courseA1_S1_2, courseA1_S1_3, courseA1_S1_4, courseA1_S1_5, courseA1_S1_6, courseA1_S1_7, courseA1_S1_8, courseA1_S1_9])
+        A1_S3 = Department("A1 S3", [courseA1_S3_1, courseA1_S3_2, courseA1_S3_3, courseA1_S3_4, courseA1_S3_5, courseA1_S3_6, courseA1_S3_7, courseA1_S3_8, courseA1_S3_9, courseA1_S3_10, courseA1_S3_11, courseA1_S3_12])
+        A1_S5 = Department("A1 S5", [courseA1_S5_1, courseA1_S5_2, courseA1_S5_3, courseA1_S5_4, courseA1_S5_5, courseA1_S5_6, courseA1_S5_7, courseA1_S5_8, courseA1_S5_9, courseA1_S5_10, courseA1_S5_11, courseA1_S5_12, courseA1_S5_13])
+        A2_S1 = Department("A2 S1", [courseA2_S1_1, courseA2_S1_2, courseA2_S1_3, courseA2_S1_4, courseA2_S1_5, courseA2_S1_6, courseA2_S1_7, courseA2_S1_8, courseA2_S1_9])
+        A2_S3 = Department("A2 S3", [courseA2_S3_1, courseA2_S3_2, courseA2_S3_3, courseA2_S3_4, courseA2_S3_5, courseA2_S3_6, courseA2_S3_7, courseA2_S3_8, courseA2_S3_9, courseA2_S3_10, courseA2_S3_11, courseA2_S3_12])
+        A2_S5 = Department("A2 S5", [courseA2_S5_1, courseA2_S5_2, courseA2_S5_3, courseA2_S5_4, courseA2_S5_5, courseA2_S5_6, courseA2_S5_7, courseA2_S5_8, courseA2_S5_9, courseA2_S5_10, courseA2_S5_11, courseA2_S5_12, courseA2_S5_13])
+        C_S1 = Department("C S1", [courseC_S1_1, courseC_S1_2, courseC_S1_3, courseC_S1_4, courseC_S1_5, courseC_S1_6, courseC_S1_7, courseC_S1_8, courseC_S1_9])
+        C_S3 = Department("C S3", [courseC_S3_1, courseC_S3_2, courseC_S3_3, courseC_S3_4, courseC_S3_5, courseC_S3_6, courseC_S3_7, courseC_S3_8, courseC_S3_9, courseC_S3_10, courseC_S3_11])
+        C_S5 = Department("C S5", [courseC_S5_1, courseC_S5_2, courseC_S5_3, courseC_S5_4, courseC_S5_5, courseC_S5_6, courseC_S5_7, courseC_S5_8, courseC_S5_9, courseC_S5_10, courseC_S5_11, courseC_S5_12, courseC_S5_13, courseC_S5_14])
+        B_S1 = Department("B S1", [courseB_S1_1, courseB_S1_2, courseB_S1_3, courseB_S1_4, courseB_S1_5, courseB_S1_6, courseB_S1_7, courseB_S1_8, courseB_S1_9])
+        B_S3 = Department("B S3", [courseB_S3_1, courseB_S3_2, courseB_S3_3, courseB_S3_4, courseB_S3_5, courseB_S3_6, courseB_S3_7, courseB_S3_8, courseB_S3_9, courseB_S3_10, courseB_S3_11])
+        B_S5 = Department("B S5", [courseB_S5_1, courseB_S5_2, courseB_S5_3, courseB_S5_4, courseB_S5_5, courseB_S5_6, courseB_S5_7, courseB_S5_8, courseB_S5_9, courseB_S5_10, courseB_S5_11])
+        self._depts = [A1_S1, A1_S3, A1_S5, A2_S1, A2_S3, A2_S5, C_S1, C_S3, C_S5, B_S1, B_S3, B_S5]
         self._numberOfClasses = 0
         for i in range(0, len(self._depts)):
             self._numberOfClasses += len(self._depts[i].get_courses())
