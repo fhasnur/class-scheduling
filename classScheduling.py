@@ -1,89 +1,10 @@
 import prettytable as prettytable
 import random as rnd
-import numpy as np
-import skfuzzy as fuzz
-from skfuzzy import control as ctrl
 
 POPULATION_SIZE = 10
 NUMB_OF_ELITE_SCHEDULES = 1
 TOURNAMENT_SELECTION_SIZE = 3
 MUTATION_RATE = 0.2
-
-
-class FuzzyMamdani:
-    def __init__(self):
-        self.population = ctrl.Antecedent(np.arange(0, 1000, 1), "Population")
-        self.generation = ctrl.Antecedent(np.arange(0, 1000, 1), "Generation")
-        self.crossover = ctrl.Consequent(np.arange(0.6, 0.9, 0.01), "Crossover")
-        self.mutation = ctrl.Consequent(np.arange(0, 0.25, 0.01), "Mutation")
-
-    def customMembership(self):
-        self.population["small"] = fuzz.zmf(self.population.universe, 50, 250)
-        self.population["medium"] = fuzz.gaussmf(self.population.universe, mean=275, sigma=80)
-        self.population["large"] = fuzz.smf(self.population.universe, 350, 500)
-
-        self.generation["short"] = fuzz.zmf(self.generation.universe, 50, 200)
-        self.generation["medium"] = fuzz.gaussmf(self.generation.universe, mean=275, sigma=80)
-        self.generation["long"] = fuzz.smf(self.generation.universe, 350, 500)
-
-        self.crossover["small"] = fuzz.zmf(self.crossover.universe, 0.625, 0.7)
-        self.crossover["medium"] = fuzz.trapmf(self.crossover.universe, [0.63, 0.7, 0.72, 0.78])
-        self.crossover["large"] = fuzz.trapmf(self.crossover.universe, [0.72, 0.78, 0.8, 0.87])
-        self.crossover["very_large"] = fuzz.smf(self.crossover.universe, 0.8, 0.875)
-
-        self.mutation["very_small"] = fuzz.zmf(self.mutation.universe, 0.025, 0.1)
-        self.mutation["small"] = fuzz.trapmf(self.mutation.universe, [0.047, 0.083, 0.1, 0.14])
-        self.mutation["medium"] = fuzz.trapmf(self.mutation.universe, [0.1, 0.14, 0.167, 0.2])
-        self.mutation["large"] = fuzz.smf(self.mutation.universe, 0.15, 0.225)
-
-    def crossover_rules(self):
-        self.customMembership()
-        self.crossover_rule1 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["short"]), consequent=(self.crossover["medium"]))
-        self.crossover_rule2 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["short"]), consequent=(self.crossover["small"]))
-        self.crossover_rule3 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["short"]), consequent=(self.crossover["small"]))
-        self.crossover_rule4 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["medium"]), consequent=(self.crossover["large"]))
-        self.crossover_rule5 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["medium"]), consequent=(self.crossover["large"]))
-        self.crossover_rule6 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["medium"]), consequent=(self.crossover["medium"]))
-        self.crossover_rule7 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["long"]), consequent=(self.crossover["very_large"]))
-        self.crossover_rule8 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["long"]), consequent=(self.crossover["very_large"]))
-        self.crossover_rule9 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["long"]), consequent=(self.crossover["large"]))
-
-    def mutation_rules(self):
-        self.customMembership()
-        self.mutation_rule1 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["short"]), consequent=(self.mutation["large"]))
-        self.mutation_rule2 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["short"]), consequent=(self.mutation["medium"]))
-        self.mutation_rule3 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["short"]), consequent=(self.mutation["small"]))
-        self.mutation_rule4 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["medium"]), consequent=(self.mutation["medium"]))
-        self.mutation_rule5 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["medium"]), consequent=(self.mutation["small"]))
-        self.mutation_rule6 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["medium"]), consequent=(self.mutation["very_small"]))
-        self.mutation_rule7 = ctrl.Rule(antecedent=(self.population["small"] & self.generation["long"]), consequent=(self.mutation["small"]))
-        self.mutation_rule8 = ctrl.Rule(antecedent=(self.population["medium"] & self.generation["long"]), consequent=(self.mutation["very_small"]))
-        self.mutation_rule9 = ctrl.Rule(antecedent=(self.population["large"] & self.generation["long"]), consequent=(self.mutation["very_small"]))
-
-    def controlSystem(self):
-        self.crossover_rules()
-        self.mutation_rules()
-        crossover_value = ctrl.ControlSystem([self.crossover_rule1, self.crossover_rule2, self.crossover_rule3, self.crossover_rule4, self.crossover_rule5, self.crossover_rule6, self.crossover_rule7, self.crossover_rule8, self.crossover_rule9])
-        mutation_value = ctrl.ControlSystem([self.mutation_rule1, self.mutation_rule2, self.mutation_rule3, self.mutation_rule4, self.mutation_rule5, self.mutation_rule6, self.mutation_rule7, self.mutation_rule8, self.mutation_rule9])
-        self.crossover_simulation = ctrl.ControlSystemSimulation(crossover_value)
-        self.mutation_simulation = ctrl.ControlSystemSimulation(mutation_value)
-
-        self.crossover_simulation.input['Population'] = 10
-        self.crossover_simulation.input['Generation'] = 100
-
-        self.mutation_simulation.input['Population'] = 10
-        self.mutation_simulation.input['Generation'] = 100
-
-        self.crossover_simulation.compute()
-        self.mutation_simulation.compute()
-
-    def result(self):
-        self.controlSystem()
-        print(self.crossover_simulation.output["Crossover"])
-        print(self.mutation_simulation.output["Mutation"])
-        self.prob_crossover.view(sim=self.ctrl_value)
-        
-
 
 class Data:
     ROOMS = [
