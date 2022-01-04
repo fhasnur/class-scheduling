@@ -3,5 +3,5 @@ Class Scheduling using Fuzzy Genetic Algorithms
 
 Fuzzy Genetic Algorithms is a combination of Fuzzy Logic and Genetic Algorithms
 
-1. classScheduling.py for *genetic algorithm*
-2. 
+1. fuzzymamdani_controlsystem.py for *fuzzy logic*
+2. classScheduling.py for *genetic algorithm*
